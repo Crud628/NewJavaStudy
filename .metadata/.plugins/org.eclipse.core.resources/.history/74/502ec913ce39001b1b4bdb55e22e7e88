@@ -1,0 +1,27 @@
+package Day2;
+
+import java.util.Scanner;
+
+public class extra {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入人数");
+		int count = sc.nextInt();
+		int[] arr = new int[count];
+		int[] arr2 = new int[count];
+		int flag = 0;
+		int m =arr.length;
+		while(m==1) {
+			int i = 0;
+			if((i+1)%3==0) {
+				flag=(i+1)%arr.length;
+				if(arr[flag]!=1) {
+					arr[flag]=1;
+				}
+			}
+		}
+
+	}
+
+}

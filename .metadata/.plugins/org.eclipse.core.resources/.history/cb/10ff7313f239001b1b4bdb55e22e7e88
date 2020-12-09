@@ -1,0 +1,8 @@
+package Day2;
+
+public class case6 {
+	public static void main(String[] args) {
+		int[][] arr = new int[6][];
+		
+	}
+}
