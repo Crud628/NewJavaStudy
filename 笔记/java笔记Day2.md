@@ -68,7 +68,7 @@ method 3:
 
 ### case 1
 
-![image-20201209143708297](D:\笔记\java笔记Day2.assets\image-20201209143708297.png)
+![case1](java笔记Day2.assets\image-20201209143708297.png)
 
 ```java
 package Day2;
@@ -119,7 +119,7 @@ public class case1 {
 
 ### case 2
 
-![image-20201209143742604](D:\笔记\java笔记Day2.assets\image-20201209143742604.png)
+![image-20201209143742604](java笔记Day2.assets\image-20201209143742604.png)
 
 ```java
 package Day2;
@@ -156,7 +156,7 @@ public class case2 {
 
 ### case 3
 
-![image-20201209143930676](D:\笔记\java笔记Day2.assets\image-20201209143930676.png)
+![image-20201209143930676](java笔记Day2.assets\image-20201209143930676.png)
 
 
 
@@ -213,7 +213,7 @@ public class case3 {
 
 ### case 4
 
-![image-20201209144050368](D:\笔记\java笔记Day2.assets\image-20201209144050368.png)
+![image-20201209144050368](java笔记Day2.assets\image-20201209144050368.png)
 
 
 
@@ -329,7 +329,7 @@ Arrays.deepToString()   打印
 
 ### case 1
 
-![image-20201209150852022](D:\笔记\java笔记Day2.assets\image-20201209150852022.png)
+![image-20201209150852022](java笔记Day2.assets\image-20201209150852022.png)
 
 
 
@@ -383,7 +383,7 @@ public class case5 {
 
 ### case 2  杨辉三角
 
-![image-20201209150905892](D:\笔记\java笔记Day2.assets\image-20201209150905892.png)
+![image-20201209150905892](java笔记Day2.assets\image-20201209150905892.png)
 
 ```java
 public class case6 {
@@ -426,7 +426,7 @@ public class case6 {
 
 ### case 3
 
-![image-20201209150920460](D:\笔记\java笔记Day2.assets\image-20201209150920460.png)
+![image-20201209150920460](java笔记Day2.assets\image-20201209150920460.png)
 
 ```java
 import java.util.Arrays;
