@@ -1,0 +1,53 @@
+package Day4;
+
+import java.util.Random;
+
+public class case1_shuffle {
+
+	public static void main(String[] args) {
+		
+		Random random=new Random();
+		int temp=random.nextInt(53)+1;//1-54
+		int temp2 = random.nextInt(53)+1;
+		while(temp2==temp) {
+			temp2 = random.nextInt(53)+1;
+		}
+//		System.out.println(52/13);
+		shuffle(temp);
+		shuffle(temp2);
+		
+	}
+	private static void shuffle(int num) {
+		// TODO Auto-generated method stub
+		switch(num/13) {
+			case 0://红桃
+				
+				break;
+			case 1://黑桃
+				System.out.println("");
+				break;
+			case 2://梅花
+				System.out.println("");
+				break;
+			case 3://方块
+				System.out.println("");
+				break;
+			case 4://方块K   大王  小王
+				
+				break;
+		}
+	}
+	private void ran(int m,String str) {
+		// TODO Auto-generated method stub
+		if(m<=10) {
+			System.out.println(str+m);
+		}else if(m==11) {
+			System.out.println(str+"J");
+		}else if(m==12) {
+			System.out.println(str+"Q");
+		}else {
+			System.out.println(str+"K");
+		}
+	}
+
+}

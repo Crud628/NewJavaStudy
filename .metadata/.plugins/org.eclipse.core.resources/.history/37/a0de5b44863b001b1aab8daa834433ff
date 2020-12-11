@@ -1,0 +1,15 @@
+package Day4;
+
+public class work1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		play();
+	}
+
+	public static void play() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

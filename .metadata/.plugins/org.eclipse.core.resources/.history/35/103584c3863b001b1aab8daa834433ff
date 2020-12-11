@@ -1,0 +1,24 @@
+package Day4;
+
+import java.util.Scanner;
+
+public class work1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		play(sc);
+	}
+
+	public static void play(Scanner sc) {
+		
+		while(true) {
+			System.out.println("是否开始游戏（Y/N）");
+			String flag = sc.next();
+			if(flag.equalsIgnoreCase("N")) {
+				break;
+			}
+		}
+	}
+
+}
