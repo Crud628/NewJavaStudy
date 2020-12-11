@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年会抽奖</title>
+<link type="text/css" rel="stylesheet" href="css/mr-style.css">
+</head>
+<body>
+	<div class="cont">
+		<input type="text" disabled="disabled" id="mr-show"><br>
+		<span>按下Enter键开始，任意键结束</span>
+	</div>
+</body>
+<script type="text/javascript">
+	var flag = false;
+	var clc = null;
+	var arr = ["12312331231","14512331235","18712331111",
+				"12312335431","16312334567","123123312222",
+				"11112331531","17612332387"]
+	var bt = document.getElementById("mr-show");
+	document.addEventListener("keydown",fn);
+	function fn(e){
+		var key = e.keyCode;
+		//console.log(key);
+		if (key==13) {
+			if (flag==false) {
+				flag = true;
+				clc = setInterval(function(){
+					var tel = arr[Math.floor(Math.random()*arr.length)]
+					bt.value = tel.substring(0,3)+"****"+tel.substring(7,11);
+				},80);
+			}else{
+				clearInterval(clc);
+				flag = false;
+			}
+		}
+		switch(key){
+			case 49:
+				bt.value="155****2040";
+				clearInterval(clc);
+				break;
+		}
+		
+	}
+</script>
+</html>
+
+
+<!-- disabled="disabled" disabled 属性是一个布尔属性。 disabled 属性规定应该禁用的
+<input>元素。 被禁用的 input 元素是无法使用和无法点击的。 disabled
+属性进行设置，使用户在满足某些条件时（比如选中复选框，等等）才能使用
+<input>元素。然后，可使用 JavaScript 来删除 disabled 值，使该
+<input>元素变为可用的状态。 -->
+
+<!-- 按下键盘事件
+window.onkeydown = function(){} 
+event.code 按下的键盘按键
+event.keyCode 按下的键盘按键ascii码
+<script>
+function myFunction(){
+	alert("你在输入栏内按下一个键:   "+event.keyCode);
+}
+</script>
+<!-- ascii码   "回车"  13    A-Z 65-90 a-z 97-122 -->
+
+<!-- <p>当你在输入框内按下一个按键是函数被触发</p>
+<input type="text" onkeydown="myFunction()"> -->
+
+<!-- [数组].join()   把数组中所有元素转化成字符串，逗号分隔
+.join("x")    把数组中所有元素转化成字符串，x分隔 -->
+
+
+<!-- charAt() 方法可返回指定位置的字符。
+第一个字符位置为 0, 第二个字符位置为 1,以此类推
+var str = "HELLO WORLD";
+var n = str.charAt(2) -->
+
+ 
+
+
+

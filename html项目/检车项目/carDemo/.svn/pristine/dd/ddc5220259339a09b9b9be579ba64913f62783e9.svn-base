@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+        html,body{
+            background: #eee;
+        }
+        #header{
+            background: #fff;
+            height:70px;
+            width: 100%;
+          }
+          #closed{
+            position: absolute;
+            top:35px;
+            left:5px;
+            height: 25px;
+            width: auto;
+          }
+          #closed img{
+              height: 100%;
+              width:100%;
+          }
+          #headerm{
+            position: absolute;
+            top:40px;
+            left:40%;
+            text-align: center;
+          }
+
+        #tips{
+            display: flex;
+            align-items: center;
+            height: 25px;
+            font-size:x-small;
+            color: #ccc
+        }
+        #firstline{
+            background:skyblue;
+            height: 40px;
+            font-size: smaller;
+            width:80px;
+        }
+        th,td {
+            border: 1px solid #d4d4d4;
+            height: 28px;
+            min-height: 28px;
+            max-height: 28px;
+            font-size: 12px;
+            text-align: center;
+            width: 80px;
+            min-width: 80px;
+            max-width: 80px;
+            padding: 0;
+            line-height: 28px;
+        }
+        #subscribe{
+            position:absolute;
+            top:70%;
+            left:15%;
+            height: 45px;
+            width:70%;
+        }
+        #subscribe img{
+            height: 100%;
+            width: 100%;
+        }
+        /* #table-body{
+            position: absolute;
+            left: 0;
+            right: 0;    
+        } */
+      </style>
+  </head>
+  <body>
+      <!-- 头部信息和返回 -->
+    <div id = "header">
+        <div id = "closed" onclick="api.closeWin()">
+            <img src = "../image/back.png">
+        </div>
+        <div id = "headerm">
+            订单管理
+        </div>
+    </div>
+
+    <!-- 提示 -->
+    <div id = "tips">
+        过往订单
+    </div>
+
+    <!-- 表格 -->
+    
+    <div id = "table-head" >
+      <table>
+        <tr id = "firstline" style="color: #fff;">
+            <th>订单ID</th>
+            <th>用户ID</th>
+            <th>检查站ID</th>
+            <th>订单内容</th>
+            <th>订单时间</th>
+        </tr>
+    </table>
+    </div>
+    <div id = "table-body" style=" overflow-y: scroll;height: 200px;">
+        <table>
+
+            <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>123456</td>
+            <td>00000001</td>
+            <td>已检测</td>
+            <td>2020-11-10</td>
+        </tr>
+            
+        </table>
+    </div>
+
+    <div id = "subscribe">
+        <img src = "../image/yuyue.png">
+    </div>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+
+      };
+
+  </script>
+  </html>

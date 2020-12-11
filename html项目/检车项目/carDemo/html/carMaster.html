@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+          html,body{
+            background: #eee;
+          }
+          #header{
+            background: #fff;
+            height:70px;
+            width: 100%;
+          }
+          #closed{
+            position: absolute;
+            top:42px;
+            left:5px;
+            height: 18px;
+            width: auto;
+          }
+          #closed img{
+              height: 100%;
+              width:100%;
+          }
+          #headerm{
+            position: absolute;
+            top:40px;
+            left:40%;
+            text-align: center;
+          }
+          #div1{
+            display: flex;
+            align-items: center;
+            height:25px;
+            font-size: smaller;
+          }
+          #carid{
+            display: flex;
+            align-items: center;
+            background: #fff;
+            height: 40px;
+          }
+          .option{
+            background: #fff;
+            height: 300px;
+            width: auto;
+          }
+          #cardate{
+            display: flex;
+            align-items: center;
+            background: #fff;
+            height: 40px;
+          }
+          #td1{
+            color:orange;
+          }
+          #td2{
+            color:#eee
+          }
+          #tips{
+            font-size: smaller;
+          }
+          a{
+            color:orange;
+            font-size: smaller;
+          }
+          #input{
+            position: relative;
+            height: 45px;
+            width:70%;
+            top:60px;
+            left:15%;
+          }
+          #input img{
+            height: 100%;
+            width: 100%;
+          }
+          .cartype table tr td{
+            background: #eee;
+          }
+          
+          .multi-select,.multi-select2{
+          box-sizing: border-box;
+          padding-top: 11px;
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          flex: 1;
+          height: 60px;
+        }
+        #type,#type2{
+          position: relative;
+          left:30px;
+        }
+        .multi-select .item,.multi-select2 .item2{
+            display: inline-block;
+            width: 60px;
+            height: 25px;
+            padding: 4px 8px;
+            color: #888;
+            font-size: smaller;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 19px;
+            border: 1px solid #888;
+        }
+        
+        .multi-select .selected,.multi-select2 .selected {
+            background: orange;
+        }
+      </style>
+  </head>
+  <body>
+    <!-- 头部信息和返回 -->
+    <div id = "header">
+      <div id = "closed" onclick="api.closeWin()">
+        <img src = "../image/back.png">
+      </div>
+
+      <div id = "headerm">
+          车辆管理
+      </div>
+    </div>
+
+    <!-- 车牌号 -->
+    <div id = "div1">
+      请输入车辆信息
+    </div>
+    <div id="carid">
+      <table>
+        <tr>
+          <td id = "td1" align = "center" width=60px;>车牌号</td>
+          <td id = "td2" align = "center" width=30px;>丨</td>
+          <td id = "td3"><input type="text" placeholder="辽B00000"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <!-- 车辆类型 -->
+      <div class="option">
+
+          <div class="name">请选择车型</div>
+          <br>
+          <div id="type" class="multi-select">
+              <div class="item selected" tapmode onclick="selectCarType(0)">大型车</div>
+              <div class="item" tapmode onclick="selectCarType(1)">小型车</div>
+          </div><br>
+
+          <div class="name">请选择座位数</div>
+          <br>
+          <div id="type2" class="multi-select2">
+              <div class="item2 selected" tapmode onclick="selectCarSite(0)">5座以下</div>
+              <div class="item2" tapmode onclick="selectCarSite(1)">5座</div>
+              <div class="item2" tapmode onclick="selectCarSite(2)">6座</div>
+              <br>
+              <br>
+              <div class="item2" tapmode onclick="selectCarSite(3)">7座</div>
+              <div class="item2" tapmode onclick="selectCarSite(4)">7座以上</div>
+          </div><br>
+      </div>
+    <br>
+
+    <!-- 日期 -->
+    <div id = "cardate" onclick="dateSelect()">
+      <table>
+          <tr>
+            <td align="center" width=100px>注册日期</td>
+            <td ><input type="text" id ="cardate2" placeholder="请参照行驶证上信息"></td>
+            <td ><img src = "../image/right.png" style="width: 10px;height: auto;"></td>
+          </tr>
+      </table>
+      
+    </div>
+
+    <!-- 参考说明 -->
+    <div id = "tips">
+      以上资料参见<a href = "#">《车辆行驶证》</a>
+    </div>
+
+    <!-- 提交 -->
+    <div id = "input" align = "center">
+      <img src = "../image/input.png">
+    </div>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+
+      };
+      function dateSelect() {
+        api.openPicker({
+        type: 'date',
+        date: '2020-11-10 10:00',
+        title: '选择时间'
+        }, function(ret, err) {
+            if (ret) {
+              document.getElementById('cardate2').value=ret.year+'-'+ret.month+'-'+ret.day;
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+      };
+
+  function selectCarType(index_) {
+    var type = $api.byId('type');
+    var typeItems = $api.domAll(type, '.item');
+    
+    for (var i = 0; i < typeItems.length; i++) {
+        if (i == index_) {
+            $api.addCls(typeItems[i], 'selected');
+        } else {
+            $api.removeCls(typeItems[i], 'selected');
+        }
+    }
+  }
+
+
+  function selectCarSite(index_) {
+    var type2 = $api.byId('type2');
+    var typeItems2 = $api.domAll(type2, '.item2');
+    
+    for (var i = 0; i < typeItems2.length; i++) {
+        if (i == index_) {
+            $api.addCls(typeItems2[i], 'selected');
+        } else {
+            $api.removeCls(typeItems2[i], 'selected');
+        }
+    }
+  }
+
+  </script>
+  </html>

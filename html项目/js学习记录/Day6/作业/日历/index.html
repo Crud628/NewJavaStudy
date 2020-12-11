@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>日历Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/date.css">
+</head>
+<body>
+	<div id = "main" align="center">
+		<!-- 标题 -->
+		<div id = "title">
+			<h2>模拟日历</h2>
+		</div>
+
+		<!-- 输入框 -->
+		<div >
+			<span>年</span>
+			<input type="text" id = "year">
+			<span>月</span>
+			<input type="text" id = "month">
+			<span>&nbsp;</span>
+			<input type="button" id = "btn" value="生&nbsp;成" onclick = "fun()">
+		</div>
+
+		<!-- 日历 -->
+		<div id = "calendar">
+
+			<div id = "date">
+				<span id = date2></span>
+			</div>
+			<div>
+				<table border = 0 id = "week" >
+					<tr>
+						<td>Sun</td>
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+					</tr>
+				</table>
+			</div>
+			<div id = "month2">
+			<table id = "day" border ="1" cellpadding="0" cellspacing="0">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src = "js/date.js"></script>
+</body>
+</html>

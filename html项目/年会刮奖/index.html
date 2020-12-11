@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>刮奖</title>
+    <link rel="stylesheet" type="text/css" href="css/mr-style.css"/>
+</head>
+<body style="background-image: url(images/bg.png)">
+<div id="main">
+    <h2 class="top_title"><a href="#">JavaScript刮奖功能</a></h2>
+    <div class="msg">请刮开灰色部分，<a href="javascript:void(0)" onClick="window.location.reload()">再来一次</a></div>
+    <div class="demo" id="demo">
+        <canvas id ="myCanvas"></canvas>
+    </div>
+</div>
+<script type="text/javascript">
+	//随机数   返回0-9
+	var result = Math.floor(Math.random() * 10);
+	//console.log(result);
+	var oldX = 0;
+	var oldY = 0;
+	var d = document.getElementById('demo');
+	window.onload = function(){
+		if (result > 4) {
+			d.style.backgroundImage="url('images/p_1.jpg')";
+		}
+	}
+	document.addEventListener("keydown",keydown);
+	function keydown(e){
+		//console.log(e.keyCode);
+		//数字键  1：一半概率（一半）49  2：百分百概率 50  3：10%概率 51
+		switch(e.keyCode){
+			case 49:
+				if (result > 4) {
+					d.style.backgroundImage="url('images/p_1.jpg')";
+				}
+				break;
+			case 50:
+				d.style.backgroundImage="url('images/p_1.jpg')";
+				break;
+			case 51:
+				if (result > 8) {
+					d.style.backgroundImage="url('images/p_1.jpg')";
+				}
+				d.style.backgroundImage="url('images/p_0.jpg')";
+				break;
+		}
+	}		
+
+	var c = document.getElementById("myCanvas");
+	var cxt = c.getContext("2d");
+	cxt.fillStyle="gray";
+	cxt.fillRect(0,0,300,150);
+	cxt.globalCompositeOperation = 'destination-out';
+
+	//监听
+	document.addEventListener('mousedown', drawArcMouseHandle);
+	document.addEventListener('mouseup', function(event) {
+		document.removeEventListener('mousemove', mousemoveHandle);
+	}); 
+
+	// 根据鼠标的move画圆   滑动
+	function drawArcMouseHandle(event) {
+		oldX = event.pageX-d.offsetLeft;
+		oldY = event.pageY-d.offsetTop;
+		// console.log("X:  "+oldX+"   Y:  "+oldY);
+		document.addEventListener("mousemove", mousemoveHandle);
+	}
+
+	// 为了能够移除movesemove的事件需要单独处理一下
+	function mousemoveHandle(event) {
+		event.preventDefault();//不写这个就停不下来
+		drawArcByPoint(event);
+	}
+
+
+	function drawArcByPoint(event) {
+		var newY = event.pageY-d.offsetTop;
+		var newX = event.pageX-d.offsetLeft;
+		// console.log("M  :  "+newX+"N   :  "+newY);
+	    cxt.beginPath();
+        cxt.moveTo(oldX, oldY);
+        cxt.lineTo(newX, newY);
+        cxt.strokeStyle = "white";
+        cxt.lineWidth = 40;
+        cxt.lineCap = 'round';
+        cxt.stroke();
+        oldX = newX;
+        oldY = newY;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>视频Demo</title>
+	<style type="text/css">
+		body{
+			background: gray;
+		}
+		#vi{
+			text-align: center;
+			margin-top:100px;
+		}
+		#fun{
+			text-align: center;
+		}
+		input{
+			background: purple;
+			width: auto;
+			height: 20px;
+			color: white;
+			border-radius: 3px;
+			outline: none;
+			border:none;
+		}
+	</style>
+</head>
+<body>
+	<div id = "vi">
+		<video src="video/myVideo.mp4" autoplay="" controls="" id = "myvideo">
+			  <source src="myVideo.webm" type="video/webm">
+			  <source src="myVideo.ogg" type="video/ogg"> 
+		</video>
+		<br>
+		<div id = "fun">
+			<input type="button" onclick = "vStart()" value="播放" id = "s">
+			<input type="button" onclick = "v5s()" value="快进5s">
+			<input type="button" onclick = "v5s2()" value="快退5s">
+			<input type="button" onclick = "vvUp()" value="音量+">
+			<input type="button" onclick = "vvDown()" value="音量-">
+			<input type="button" onclick = "vvShut()" value="静音">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var v = document.getElementById("myvideo");
+		var s = document.getElementById("s");
+		var flag = false;
+		var i=false;
+		function vStart(){
+			if(flag ==false){
+				flag=true
+				v.play();
+				s.value="暂停";
+				return;
+				
+			}
+			v.pause();
+			flag = false;
+			s.value="继续";
+		}
+
+		function v5s2(){
+			if (v.currentTime<5) {
+				v.currentTime = 0;
+				return;
+			}
+			v.currentTime-=5
+		}
+		function v5s(){
+			if (v.duration-v.currentTime<5) {
+				v.currentTime = v.duration;
+				return;
+			}
+			v.currentTime+=5;
+		}
+		function vvUp(){
+			v.muted =false;
+			if (v.volume===1) {
+				return;
+			}
+			v.volume+=0.1;
+		}
+		function vvDown(){
+			if(v.volume<=0.1){
+				v.muted = true;
+				return;
+			}
+			v.muted = false;
+			v.volume-=0.1;
+		}
+		function vvShut(){
+			if(v.muted){
+				v.muted = false;
+			}else{
+				v.muted = true;
+			}
+		}
+	</script>
+</body>
+	
+	
+</html>

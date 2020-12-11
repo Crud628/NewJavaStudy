@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>钢琴</title>
+	<style type="text/css">
+		#play{
+			position: absolute;
+			left:300px;
+			top: 100px;
+		}
+		#piano{
+			height: 360px;
+			width: 550px;
+		}
+		#white_b li{
+			position: relative;
+			float: left;
+			list-style: none;
+			height: 360px;
+			width: 60px;
+			/*background-color: white;*/
+			background:url(images/key_back_white.png);
+			background-size: cover;
+			border: solid 1px black;
+			text-align: center;
+		}
+		#black{
+			position: absolute;
+			left: 0;
+			top:21px;
+		}
+		#black_b li{
+			position: relative;
+			float: left;
+			list-style: none;
+			height: 180px;
+			width: 40px;
+			color: white;
+			border:solid 1px gray;
+			background-color: black;
+			/*background:url(images/key_back_black.png) no-repeat;*/
+			background-size:;
+			text-align:center ;
+		}
+	</style>
+</head>
+<body>
+<div id = "play">
+	<div id = "title">
+		<strong>模拟钢琴</strong>
+	</div>
+	<div id = "piano">
+		<div id = "white">
+			<ul id = "white_b">
+				<li>c4</li>
+				<li>d4</li>
+				<li>e4</li>
+				<li>f4</li>
+				<li>g4</li>
+				<li>a4</li>
+				<li>b4</li>
+				<li>c5</li>
+			</ul>
+		</div>
+		<div id ="black">
+			<ul id = "black_b">
+				<li class = "m" style="left:40px">c4m</li>
+				<li class = "m" style="left:61px">d4m</li>
+				<li class = "m" style="left:144px">f4m</li>
+				<li class = "m" style="left:166px">g4m</li>
+				<li class = "m" style="left:184px">a4m</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var bu = document.getElementsByTagName('li');
+	// console.log(bu);
+	for(let i in bu){
+		bu[i].onclick = function(){
+			let src = "audio/"+this.innerText+".MP3";
+			let audio = new Audio(src);
+			audio.play();
+			// console.log(this);
+		};
+	};
+</script>
+</body>
+</html>

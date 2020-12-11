@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>弹幕Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+</head>
+<body>
+	<input type="text" id = "danmu">
+	<span>颜色</span>
+	<select id = "se">
+		<option value="red">红色</option>
+		<option value="green">绿色</option>
+		<option value="blue">蓝色</option>
+		<option value="black">黑色</option>
+	</select>
+	<span>字号</span>
+	<select id = "se2">
+		<option value="small">小</option>
+		<option value="medium">中</option>
+		<option value="large">大</option>
+	</select>
+	<input type="range" name="">
+	<input type="button" name="" value = "发送" onclick="fun()">
+	<div id = "main">
+		
+	</div>
+
+	<script type="text/javascript">
+		var d = document.getElementById("danmu");
+		var m = document.getElementById("main");
+		var color = document.getElementById("se");
+		var size = document.getElementById("se2");
+		document.addEventListener("keydown",fn);
+		var clc = null;
+		function fn(e){
+			// console.log(e.keyCode);
+			if (e.keyCode===13) {
+				fun();
+			}
+		}
+		function fun(){
+			let di = document.createElement('div');
+			di.className = 'dan';
+			di.style.color = color.value;
+			di.style.fontSize=size.value;
+			di.innerHTML = d.value;
+			di.style.top = Math.floor(Math.random()*720)+"px";
+			m.appendChild(di);
+			let j = 1;
+			let clc = setInterval(function(){
+				di.style.left = (1500-j) +"px";
+				j+=3;
+				if (parseInt(di.style.left) < -parseInt(di.clientWidth)) {
+					m.removeChild(di);
+					clearInterval(clc);
+				}
+			},10);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+		body{
+			background: black;
+		}
+		a{
+			color:gray;
+			text-decoration:none;
+			font-size:larger;
+		}
+		#nav{
+			border-bottom:1px solid orange;
+			width: 50%;
+			text-align: left;
+			padding-bottom: 10px;
+		}
+		#timer{
+			margin-top: 20px;
+			margin-bottom: 20px;
+			height: 250px;
+			width: 250px;
+			border-radius:50%;
+			border:5px dashed skyblue;
+			text-align: center;
+
+		}
+		#title{
+			color:gray;
+			font-size:xxx-large;
+		}
+		#tim{
+			font-size:xxx-large;
+		}
+		#tips{
+			font-size: x-large;
+		}
+		.timer{
+			color:white;
+		}
+		#s{
+			font-size:xx-large;
+		}
+		button{
+			background: orange;
+			color:gray;
+			width: 80px;
+			height: 30px;
+			border: none;
+			outline: none;
+			font-size:large; 
+		}
+		button:hover{
+			color:black;
+		}
+		table{
+			width: 600px;
+			border-collapse: collapse;
+			border-spacing: 0;
+			table-layout: fixed;
+			text-align:center;
+		}

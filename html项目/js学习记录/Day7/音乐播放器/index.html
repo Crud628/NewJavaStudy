@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>musicPlayer</title>
+    <link rel="stylesheet" href="css/audio.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" media="screen" type="text/css" />
+</head>
+<body>
+  <div id="container">
+	<div id="player">
+		<!--引入音频源文件-->
+		<audio id="audio">
+			<source src="audio/陪你度过漫长岁月.mp3" type="audio/mp3"/>
+		</audio>
+		<img src="images/music.jpg">
+		<!--制作显示歌词的按钮-->
+		<label class="to-lyrics-label" for="to-lyrics"><i class="fa fa-caret-down fa-lg"></i></label>
+		<input type="checkbox" id="to-lyrics">
+		<div class="cover">
+			<div class="controls">
+				<button  title="循环播放" onclick="pLoop()"><i class="fa fa-retweet fa-lg"></i></button>
+				<button  title="上一曲" onclick="p_Last()"><i class="fa fa-backward fa-2x"></i></button>
+				<button id="play-pause" title="播放" onclick="togglePlayPause()"><i class="fa fa-play fa-3x"></i></button><!--播放/暂停切换按钮-->
+				<button  title="下一曲" onclick="p_Next()"><i class="fa fa-forward fa-2x"></i></button>
+				<button title="顺序播放" onclick="pStyle()"><i class="fa fa-random fa-lg"></i></button>
+				<input  name="volume" id="volume" min="0" max="1" step="0.1" type="range" onchange="setVolume()" /><!--音量控件-->
+			</div><!-- #controls -->
+			<div class="info">
+				<p class="song"><a href="#" target="_blank">陪你度过漫长岁月</a></p>
+				<p class="author"><a href="#" target="_blank">陈奕迅</a></p>
+			</div><!-- #info -->
+			<div class="lyrics">
+				<p>陪你度过漫长岁月</p>
+				<p>演唱：陈奕迅</p>
+
+				<p>走过了人来人往 不喜欢也得欣赏</p>
+				<p>我是沉默的存在 不当你世界 只作你肩膀</p>
+				<p>拒绝成长到成长 变成想要的模样</p>
+				<p>在举手投降以前 让我再陪你一段</p>
+
+				<p>陪你把沿路感想活出了答案</p>
+				<p>	陪你把独自孤单变成了勇敢</p>
+				<p>	一次次失去又重来 我没离开</p>
+				<p>陪伴是 最长情的告白</p>
+				<p>陪你把想念的酸 拥抱成温暖</p>
+				<p>	陪你把彷徨 写出情节来</p>
+				<p>未来多漫长 再漫长 还有期待</p>
+				<p>陪伴你 一直到 故事给说完</p>
+
+				<p>让我们静静分享 此刻难得的坦白</p>
+				<p>只是无声地交谈 都感觉幸福 感觉不孤单</p>
+			</div>
+			<p class="scroll">收起</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var pList = ["富士山下","十年","是但求其爱","稳稳的幸福","陪你度过漫长岁月"];
+	var flag = false;  //暂停or播放
+	var pStyle = 1;		//1顺序   2循环
+	var pIndex = 4;		//当前
+	var pLast = 3;		//上一首
+	var pNext = 0;		//下一首
+	var mp = document.getElementById("audio");
+	var mpList = mp.childNodes[1];
+	var p = document.getElementById("play-pause").childNodes[0];
+	var ran1 = document.getElementById("volume");
+	var sName = document.getElementsByClassName("song")[0];
+
+	//播放停止监听
+	mp.addEventListener('ended', function () {  
+        pChange();
+    }, false);
+
+	//自动播放下一曲
+	function pChange(){
+		switch(pStyle){
+			//顺序播放
+			case 1:
+				mp.loop = false;
+				pLast = pIndex;
+				pIndex++;
+				pIndex = pIndex%pList.length;
+				mpList.src = "audio/"+pList[pIndex]+".mp3";
+				mp.load();
+				mp.play();
+				sName.innerText = pList[pIndex];
+				break;
+			//单曲循环
+			case 2:
+				mp.loop = true;
+				break;
+			case 3:
+				//扩展：随机播放
+				break;
+		}
+	}
+
+	//播放暂停切换
+	function togglePlayPause(){
+		if (flag==false) {
+			flag = true;
+			mp.play(); 
+			p.className="fa fa-pause fa-3x";
+		}else{
+			mp.pause();
+			flag=false;
+			p.className="fa fa-play fa-3x"
+		}
+	}
+	//音量调节
+	function setVolume(){
+		mp.volume = ran1.value;
+	}
+
+	//单曲循环模式
+	function pLoop(){
+		pStyle = 2;
+	}
+
+	//顺序播放模式
+	function pStyle(){
+		pStyle = 1;
+	}
+
+	//切换下一首
+	function p_Next(){
+		pLast = pIndex;
+		pIndex++;
+		pIndex = pIndex%pList.length;
+		mpList.src = "audio/"+pList[pIndex]+".mp3";
+		mp.load();
+		sName.innerText = pList[pIndex];
+		if(flag){
+			mp.play();
+		}
+	}
+
+	//切换上一首
+	function p_Last(){
+		mpList.src = "audio/"+pList[pLast]+".mp3";
+		sName.innerText = pList[pLast];
+		pLast--;
+		if (pLast==0) {
+			pLast=0;
+		}
+		if (pLast<0) {
+			pLast=pList.length-1;
+		}
+		mp.load();
+		if(flag){
+			mp.play();
+		}
+	}
+</script>
+</body>
+</html>

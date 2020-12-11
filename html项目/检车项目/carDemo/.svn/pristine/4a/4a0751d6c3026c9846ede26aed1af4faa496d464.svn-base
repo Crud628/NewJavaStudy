@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        body{
+            background: #fff url(../image/backImg.png) no-repeat left top/100%;
+        }
+        #header{
+            position:absolute;
+            top:10%;
+            left:20%;
+        }
+        #title{
+            color:white;
+            
+        }
+        .login{
+            width:80%;
+            height:8%;
+            position:absolute;
+            top:60%;
+            left:10%;
+        }
+        .login img{
+            height: 100%;
+            width: 100%;
+        }
+        .sign{
+            width:80%;
+            height:8%;
+            position:absolute;
+            top:70%;
+            left:10%;
+        }
+        .sign img{
+            height: 100%;
+            width: 100%;
+        }
+        #user{
+            width:80%;
+            height:20%;
+            position:absolute;
+            top:45%;
+            left:10%;
+            
+        }
+        #username img{
+            height: 20px;
+            width: 20px;
+        }
+        #userpassword img{
+            height: 20px;
+            width: 20px;
+        }
+        input{
+            height: 25px;
+        }
+        #appeal{
+            position:absolute;
+            top:78%;
+            left:68%;
+            color:#ddd;
+        }
+        dividingLine{
+            width: 0.5;    
+            color: '#696969'   
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 欢迎语 -->
+    <div id = "header">
+            <h2 id = "title">你好，欢迎使用XX检车</h2>
+    </div>
+
+    <!-- 账号密码 -->
+    <div id = "user">
+        <div id = "username">
+            <img src="../image/uname.png">
+            <input type="text" placeholder="请输入用户名">
+        </div>
+
+        <br>
+
+        <div id = "userpassword">
+            <img src = "../image/upassword.png">
+            <input type="text" placeholder="请输入密码">
+        </div>
+
+    <!-- 登录 -->
+    </div>
+    <div class="login" onclick="doLogin()">
+        <img src="../image/Login.png">
+    </div>
+
+    <!-- 注册 -->
+    <div class = "sign" onclick="doSign()">
+        <img src="../image/Sign.png">
+    </div>
+
+    <div id = "appeal">
+        忘记密码>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        
+
+    };
+    function doLogin(){
+        api.openWin({
+            name: 'login',
+            url: 'Login.html',
+        })
+    }
+
+    function doSign(){
+        api.openFrame({
+            name: 'sign',
+            url:'sign.html',
+            rect:{
+                x:20,
+                y:150,
+                w:320,
+                h:480
+            },
+            bounces:false,
+            vScrollBarEnabled:false,
+            hScrollBarEnabled:false
+        });
+    }
+</script>
+
+</html>

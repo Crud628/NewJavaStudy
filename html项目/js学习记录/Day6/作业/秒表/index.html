@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>时间Demo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/time.css">
+</head>
+<body>
+	<div align="center">
+		<!-- 导航栏	 -->
+		<div id = "nav">
+			<a href="#">闹钟</a>&nbsp;
+			<a href="#">计时器</a>&nbsp;
+			<a href="#" style="color:white">秒表</a>
+		</div>
+
+		<!-- 时钟 -->
+		<div id = "timer" align="center">
+			<br>
+			<span id = "title">Timer</span><br>
+			<span id = "tips" class = "timer">&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;</span><br>
+			<span id = "tim" class = "timer">00:00</span><br>
+			<span id = "s" class = "timer">00</span>
+		</div>
+		<!-- 底部按钮 -->
+		<div id = "footer">
+			<table>
+				<tr>
+					<td><button onclick = "start()" id = "start">开&nbsp;始</button></td>
+					<td><button onclick = "stop()">暂&nbsp;停</button></td>
+					<td><button onclick = "re()">复&nbsp;位</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src = "js/time.js"></script>
+</body>
+</html>

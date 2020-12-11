@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #imgs{
+        position:absolute;
+        left:500px;
+        top:200px;
+    }
+</style>
+<body>
+
+<img src="images/down-0.png" alt="" id="imgs">
+
+	<script type="text/javascript">
+		var img1 = document.getElementById("imgs");
+		var i = 0;
+
+		var keyCodeArry=[];
+
+		img1.style.top = '300px';
+		img1.style.left = '500px';
+
+		document.onkeydown=function(ev){
+            var oEvent=ev||event;
+            keyCode=oEvent.keyCode;
+            keyCodeArry=addKeyCodeArry(keyCode,keyCodeArry);
+            console.log(keyCodeArry);
+            keydown();
+        }
+
+        document.onkeyup=function(ev){
+            var oEvent=ev||event;
+            keyCode=oEvent.keyCode;
+            keyCodeArry=deletKeyCodeArry(keyCode,keyCodeArry);
+            //console.log(keyCodeArry);
+        }
+        function addKeyCodeArry(num,arr){
+            var check=0;
+            for (var i=0;i<arr.length;i++) {
+                if (arr[i]==num) {
+                    check=1;
+                }
+            }
+            if (check==0) {
+                arr.push(num);
+            }
+            return arr;
+        }
+        function deletKeyCodeArry(num,arr){
+            for (var i=0;i<arr.length;i++) {
+                if (arr[i]==num) {
+                    arr.splice(i,1);
+                }
+            }
+            return arr;
+        }
+
+		function keydown(){
+			//console.log(e.keyCode);
+
+			if (keyCodeArry.length<=1) {
+			    switch(keyCodeArry[0]){
+
+			        case 37:
+			        	//左
+						goLeft(i++);
+			            break;
+			        case 38:
+			        	//上
+						goUp(i++);
+			            break;
+			        case 39:
+			            //右
+						goRight(i++);
+			            break;
+			        case 40:
+			        	//键
+						goDown(i++);
+			        	break;
+			    }
+			}
+
+			if(keyCodeArry.length>1){
+				var a = eval(keyCodeArry.join("+"));
+				//console.log(a);
+				switch(a){
+					case 75:
+						// 左上
+						goLeftUp(i++);
+						break;
+					case 77:
+						// 判断
+						
+						break;
+					case 79:
+						//右下
+						break;
+				}
+			}
+		}
+		function goLeftUp(){
+			i = i % 4;
+			var name ="images/lu-" + i + "." + "png";
+			img1.src = name;
+			img1.style.left = parseInt(img1.style.left) - 10 + 'px';
+			img1.style.top = parseInt(img1.style.top) - 10 + 'px';
+		}
+		//向右走
+		function goRight(){
+			i = i % 4;
+			var name ="images/right-" + i + "." + "png";
+			img1.src = name;
+			img1.style.left = parseInt(img1.style.left) + 10 + 'px';
+		}
+		//向左走
+		function goLeft(){
+			i = i % 4;
+			var name ="images/left-" + i + "." + "png";
+			img1.src = name;
+			img1.style.left = parseInt(img1.style.left) - 10 + 'px';
+		}
+		//向上走
+		function goUp(){
+			i = i % 4;
+			var name ="images/up-" + i + "." + "png";
+			img1.src = name;
+			img1.style.top = parseInt(img1.style.top) - 10 + 'px';
+		}
+		//向下走
+		function goDown(){
+			i = i % 4;
+			var name ="images/down-" + i + "." + "png";
+			img1.src = name;
+			img1.style.top = parseInt(img1.style.top) + 10 + 'px';
+		}
+	</script>
+</body>
+</html>

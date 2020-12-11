@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>发红包才能看的照片</title>
+<link rel="stylesheet" type="text/css" href="css/photo.css">
+</head>
+<body>
+	<div class="blurDiv">
+		<img class="blurImg" id="blurImg" src="images/pic_0.jpg">
+		<canvas id="myCanvas"></canvas>
+		<a href="javascript:reset()" class="button" id="buttonReset">想看我么</a>
+		<a href="javascript:show()" class="button" id="buttonShow">收到红包</a>
+	</div>
+
+<script type="text/javascript">
+	
+	var backImg = document.getElementById("blurImg");
+	//var a = Math.floor(Math.random()*2);
+	//var imgSrc = "images/pic_"+a+".jpg";
+	//backImg.src = imgSrc;
+	
+	var c = document.getElementById("myCanvas");
+	var cxt = c.getContext("2d");
+	var img  = new Image();
+	img.src ="images/pic_0.jpg";
+
+    img.onload  = function() {
+        cxt.drawImage(img,0,0);
+        cxt.globalCompositeOperation ='destination-in';
+       	cxt.fillStyle="rgb(63,169,245)";
+	    cxt.beginPath();
+		cxt.arc(x,y,50,0,Math.PI*2,true);
+		cxt.closePath();
+		cxt.fill();
+    }
+	var width = parseInt(backImg.width);
+    var height = parseInt(backImg.height);
+    var x = Math.floor(Math.random()*width);
+    var y = Math.floor(Math.random()*height);
+    c.height=height;
+    c.width=width;
+
+
+	// 随机
+	function reset() {
+		window.location.reload();
+	}
+
+	// 清空
+	function show(){
+		document.getElementById("myCanvas").style.zIndex=-1;
+		document.getElementById("blurImg").style.filter="blur(0px)";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+          html,body{
+            background: #eee;
+          }
+          #header{
+            background: #fff;
+            height:70px;
+            width: 100%;
+          }
+          #closed{
+            position: absolute;
+            top:35px;
+            left:5px;
+            height: 22px;
+            width: auto;
+          }
+          #headerm{
+            position: absolute;
+            top:40px;
+            left:40%;
+            text-align: center;
+          }
+          #div1{
+            display: flex;
+            /*实现垂直居中*/
+            align-items: center;
+            height:25px;
+            font-size: smaller;
+          }
+          #carid{
+            display: flex;
+            align-items: center;
+            background: #fff;
+            height: 40px;
+          }
+          #cartype{
+            background: #fff;
+            height: 250px;
+            width: auto;
+          }
+          #cardate{
+            display: flex;
+            align-items: center;
+            background: #fff;
+            height: 40px;
+          }
+          #td1{
+            color:orange;
+          }
+          #td2{
+            color:#eee
+          }
+          #tips{
+            font-size: smaller;
+          }
+          a{
+            color:orange;
+            font-size: smaller;
+          }
+          #input{
+            position: relative;
+            height: 35px;
+            width:70%;
+            top:30px;
+            left:15%;
+          }
+          #input img{
+            height: 100%;
+            width: 100%;
+          }
+          .cartype table tr td{
+            background: #eee;
+          }
+      </style>
+  </head>
+  <body>
+    <!-- 头部信息和返回 -->
+    <div id = "header">
+      <div id = "closed" onclick="api.closeWin()">
+        <img src = "../image/back.png">
+      </div>
+
+      <div id = "headerm">
+          车辆管理
+      </div>
+    </div>
+
+    <!-- 车牌号 -->
+    <div id = "div1">
+      请输入车辆信息
+    </div>
+    <div id="carid">
+      <table>
+        <tr>
+          <td id = "td1" align = "center" width=60px;>车牌号</td>
+          <td id = "td2" align = "center" width=30px;>丨</td>
+          <td id = "td3"><input type="text" placeholder="辽B00000"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <!-- 车辆类型 -->
+    <div id="cartype">
+      <div id = "type1">
+          请选择车型
+          <table class="cartype" cellspacing="10"> 
+            <tr>
+              <td>大车型</td>
+              <td>小车型</td>
+              <td></td>
+            </tr>
+          </table>
+      </div>
+
+      <div id = "type2">
+        请选择座位数
+        <table class = "cartype" cellspacing="10">  
+            <tr>
+              <td>5座以下</td>
+              <td>5座</td>
+              <td>5座</td>
+            </tr>
+            <tr>
+              <td>7座</td>
+              <td>7座以上</td>
+              <td></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <br>
+
+    <!-- 日期 -->
+    <div id = "cardate" onclick="dateSelect()">
+      <table>
+          <tr>
+            <td align="center" width=100px>注册日期</td>
+            <td ><input type="text" id = "cardate2"></td>
+          </tr>
+      </table>
+    </div>
+
+    <!-- 参考说明 -->
+    <div id = "tips">
+      以上资料参见<a href = "#">《车辆行驶证》</a>
+    </div>
+
+    <!-- 提交 -->
+    <div id = "input" align = "center">
+      <img src = "../image/input.png">
+    </div>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+
+      };
+      function dateSelect() {
+        api.openPicker({
+        type: 'date_time',
+        date: '2014-05-01 12:30',
+        title: '选择时间'
+        }, function(ret, err) {
+            if (ret) {
+                alert(JSON.stringify(ret));
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+      };
+  </script>
+  </html>

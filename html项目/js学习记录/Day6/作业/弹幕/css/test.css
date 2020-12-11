@@ -1,0 +1,9 @@
+#main{
+	height: 500px;
+	width: 100%;
+}
+.dan{
+	left: 1500px;
+	position: absolute;
+	white-space: nowrap;
+}

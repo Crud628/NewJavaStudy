@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>鼠标点击</title>
+	<style type="text/css">
+		#box{
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div id = "box" onclick="fun()">
+	</div>
+	<script type="text/javascript">
+		var i = 0;
+		var c = document.getElementById("box");
+		var textBox = new Array("1","2","3","4");
+		var backBox = new Array("#F00","#0F0","#00F","#AAA");
+		function fun() {
+			i = i % 4;
+			c.innerHTML = textBox[i];
+			c.style.background = backBox[i];
+			i++;
+		}
+	</script>
+</body>
+</html>

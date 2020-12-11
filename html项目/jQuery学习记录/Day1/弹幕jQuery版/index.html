@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>弹幕</title>
+	<script type="text/javascript" src = "js/jquery1.12.4.min.js"></script>
+	<style type="text/css">
+		#main{
+			height: 500px;
+			width: 100%;
+		}
+		.dan{
+			left: 100%;
+			position: absolute;
+			white-space: nowrap;
+		}
+		#danmu{
+			width: 200px;
+		}
+		body{
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>
+			<span>文字</span>
+		</td>
+		<td colspan="2">
+			<input type="text" id = "danmu">
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<span>字号</span>
+		</td>
+		<td>
+			<input type="range" name="" id = "fSize"  step="1" max="5" min ="1" defaultValue="3" data-size = "middle">
+		</td>
+		<td id = "fSize_v">
+			中
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span>透明度</span>
+		</td>
+		<td>
+			<input type="range" name="" id = "ft" step="1" max="100" min ="0" defaultValue="50">
+		</td>
+		<td id = "ft_v">
+			50%
+		</td>
+	</tr>
+	<tr align="center">
+		<td colspan="3">
+			<input type="button" name="" value = "发送" onclick="fun()">
+		</td>
+	</tr>
+</table>
+
+	<!-- 弹幕区 -->
+	<div id = "main">
+		
+	</div>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			// 滑动更改值
+			$('#fSize').change(function(){
+				// console.log(this.value);
+				let i = parseInt(this.value);
+				let j = $('#fSize_v')
+				let k = $('#fSize')
+				switch(i){
+					case 1:
+						j.text('最小');
+						k.attr('data-size',"smaller");
+						break;
+					case 2:
+						j.text('小');
+						k.attr('data-size',"small");
+						break;
+					case 3:
+						j.text('中');
+						k.attr('data-size',"middle");
+						break;
+					case 4:
+						j.text('大');
+						k.attr('data-size',"large");
+						break;
+					case 5:
+						j.text('最大');
+						k.attr('data-size',"xx-large");
+						break;
+				}
+			});
+
+			//
+			$('#ft').change(function(){
+				let i = parseInt(this.value);
+				$('#ft_v').text(i+"%");
+			});
+			
+			//回车
+			$(document).keydown(function(e){
+				if(e.keyCode==13){
+					fun();
+				};
+			});
+		});
+		function fun(){
+			let con = $('#danmu');
+			let size = $('#fSize').attr('data-size');
+			let color = "rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+			let color_a = parseInt($("#ft_v").text())/100;
+			let $div = $("<div class='dan'></div>");
+			$div.css({"color":color,"font-size":size,"top":Math.floor(Math.random()*700+20)+"px"});
+			$div.text(con.val());
+			$div.fadeTo(1,color_a);
+			$('#main').append($div);
+			let m = "-"+$div.css("width");
+			$div.animate({
+				left:m
+			},Math.floor(40000/$div.text().length),"linear",function(){
+				if ($div.css("left")==m) {
+					$div.remove();
+				}
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>12306</title>
+	<script type="text/javascript" src = "js/jquery1.12.4.min.js"></script>
+	<style type="text/css">
+		#main{
+			background: url(bg.png) no-repeat;
+			height: 462px;
+			width: 1000px;
+		}
+		#code{
+			position: absolute;
+			left:270px;
+			top:220px;
+			height: 200px;
+			width: 300px;
+		}
+		#p{
+			height: 150px;
+			width: 300px;
+		}
+		td{
+
+			height: 70px;
+			width: 70px;
+			/*background: red;*/
+		}
+		#title{
+			border-bottom: solid 3px gray;
+		}
+		#re{
+			float: right;
+		}
+		.dd{
+			height: 25px;
+			width: 25px;
+			background: url(marker.png);
+			position: absolute;
+		}
+		td img{
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<div id = "main">
+		<div id = "code">
+			<button onclick="check()">验证</button><br>
+			<div id = "title">
+				请点击下图中<span style="color:red">所有的</span><span id = "pType" style="color:green">test</span>
+				<span><img src="refresh.png" id = "re" onclick="pRand()"></span>
+			</div>
+			<div id = "p">
+				<table  id="pc">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var pType1 = new Array("ant","bee","fan","flower","hopper");
+		var pType2 = new Array("蚂蚁","蜜蜂","风扇","花","蚂蚱");
+		var arr = ["ant/1.jpg","ant/2.jpg","bee/1.jpg","bee/2.jpg","fan/1.jpg",
+					"flower/1.jpg","flower/2.jpg","hopper/1.jpg","hopper/2.jpg"];
+		let pp = $('#pType');
+		const pArr = $('td');
+		const p = $('#p');
+		var box =[0,0,0,0,0,0,0,0];
+		let chkbox =[0,0,0,0,0,0,0,0];
+		pRand();
+		
+		//随机
+		function pRand(){
+			arr = shuffle(arr);
+			for(let l in box){
+				box[l]=0;
+				chkbox[l]=0;
+			}
+			let i = Math.floor(Math.random()*pType1.length);
+			pp.text(pType2[i]);
+			let j =pType1[i];
+			for(let x = 0;x<pArr.length;x++){
+				pArr[x].innerHTML="<img src='"+arr[x]+"'>";
+				if (arr[x].split("/")[0]==j) {
+					chkbox[x]=1;
+				}
+			}
+			$('.dd').remove();
+		}
+
+
+		//点击事件
+		$('#pc').click(function(e){
+			let $div = $('<div class="dd"></div>');
+			$div.css({"left":(e.pageX-280)+"px","top":(e.pageY-230)+"px"});
+			// console.log((e.pageX-280)+"    "+(e.pageY-230));
+			p.append($div);
+		});
+		for(let m in pArr){
+			pArr[m].onclick = function(){
+				box[m]=1;
+			};
+		}
+
+
+		//验证
+		function  check(){
+			if (box.toString()==chkbox.toString()) {
+				alert("验证成功");
+				return;
+			}
+			alert("验证失败")
+		}
+
+		//洗牌算法   数组乱序
+		function shuffle(arr) {
+		    for (let i=arr.length-1; i>=0; i--) {
+		        let rIndex = Math.floor(Math.random()*(i+1));
+		        let temp = arr[rIndex];
+		        arr[rIndex] = arr[i];
+		        arr[i] = temp;
+		    }
+		    return arr;
+		}
+	</script>
+</body>
+</html>
