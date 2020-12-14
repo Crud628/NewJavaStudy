@@ -1,0 +1,18 @@
+package Day5;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Person p1 = new Person();
+//		System.out.println(p1.hashCode());
+		
+		Dog aa = new Dog();
+		aa.age=1;
+		aa.height=22;
+		aa.name = "白白";
+		aa.weight = 10;
+		
+	}
+
+}

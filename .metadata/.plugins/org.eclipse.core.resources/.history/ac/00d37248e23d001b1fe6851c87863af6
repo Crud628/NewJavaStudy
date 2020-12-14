@@ -1,0 +1,15 @@
+package Day5;
+
+public class CompanyTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Company DHC = new Company();
+		Member d1 = new Member("","","","","");
+		Member d2 = new Member();
+		Member d3 = new Member();
+		Member d4 = new Member();
+		Member d5 = new Member();
+	}
+
+}

@@ -134,7 +134,7 @@ public class work2 {
 						flag = false;
 					}
 				}
-				
+//				String temp2 = 
 				if(flag) {
 					if (data<0123||data>max) {
 						System.out.println("请录入0123-"+max+"的整数");
