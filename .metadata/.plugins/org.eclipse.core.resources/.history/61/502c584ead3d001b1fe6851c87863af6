@@ -3,30 +3,7 @@ package Day4;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-/**
- * 项目一：双色球
- * 功能：
- * 控制台询问是否开始游戏（Y/N）
- * 生成随机双色球中奖号码（红球6个，1-33，无重复，蓝球1个，1-16）
- * 用户依次输入所选红球，蓝球
- * 与中奖号码比对，确认奖项（显示中奖号码，从小到大排序）
- * 本期中奖号码： XX XX XX X 2步中生成的
- * 用户所选号码: XX XX XX X 3步中输入的
- * 非常遗憾/恭喜您
- * 执行1操作
- * 一等奖 6+1
- * 二等奖 6+0
- * 三等奖 5+1
- * 四等奖5+0 4+1
- * 五等奖 4+0 3+1
- * 六等奖 2+1 1+1 0+1
- * 一阶段： 功能核心
- * 二阶段： 条件核心
- * 字符串.equals(“另一個字符串) 判断字符串是否相等
- * equalsIgnoreCase 忽略大小写判断相等
- * @author Asus
- *
- */
+
 public class work1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
