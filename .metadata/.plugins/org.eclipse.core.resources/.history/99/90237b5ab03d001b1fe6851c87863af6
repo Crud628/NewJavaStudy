@@ -49,7 +49,6 @@ public class work3 {
 				System.out.println("游戏结束");
 				return;
 			}else {
-				// * 电脑随机生成 石头/剪刀/布
 				int com_chance = r.nextInt(3)+1;
 				System.out.println("请输入要下注的积分");
 				int my_score = num_check(sc, score);
@@ -58,11 +57,10 @@ public class work3 {
 				System.out.println("玩家:"+rock[my_change-1]);
 				System.out.println("电脑："+rock[com_chance-1]);
 				
-				
 				switch(paper(my_change,com_chance)) {
 					case 1:
 						System.out.println("玩家win");
-						score+=my_score;
+						score+=2*my_score;
 						System.out.println("您的积分："+score);
 						break;
 					case 0:

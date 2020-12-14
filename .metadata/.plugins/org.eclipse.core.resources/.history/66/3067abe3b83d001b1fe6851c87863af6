@@ -62,7 +62,7 @@ public class work3 {
 				switch(paper(my_change,com_chance)) {
 					case 1:
 						System.out.println("玩家win");
-						score+=my_score;
+						score+=2*my_score;
 						System.out.println("您的积分："+score);
 						break;
 					case 0:

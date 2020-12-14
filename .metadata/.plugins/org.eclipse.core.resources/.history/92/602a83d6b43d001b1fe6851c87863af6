@@ -35,8 +35,8 @@ public class work2 {
 		// TODO Auto-generated method stub
 		
 		//初始化
-		int[] res = {0,1,2,3,4,5,6,7,8,9};
-		int A = 0;
+		int[] res = {1,2,3,4,5,6,7,8,9};
+		int A = 0;  
 		int B = 0;
 		int count = 0;
 		while(true) {
@@ -62,7 +62,7 @@ public class work2 {
 					B = 0;
 					System.out.println("请输入四位数字");
 					int[] my_text = num_check(sc, 9876);
-					System.out.println(Arrays.toString(res4));
+//					System.out.println(Arrays.toString(res4));
 					// *	输入验证码（3）与生成的验证码（2）进行比较，显示结果（数字和位置都对为A 数字对位置不对为B）
 		
 					for (int i = 0; i < res4.length; i++) {
@@ -127,7 +127,6 @@ public class work2 {
 				temp[2] = data / 10 % 10;
 				temp[1] = data / 100 % 10;
 				temp[0] = data / 1000 % 10;
-				System.out.println(Arrays.toString(temp)+" 自己输入的 ");
 				for (int i = 0; i < temp.length; i++) {
 					int m = findKey(temp, temp[i]);
 					if(m>=0&&m!=i) {
@@ -136,8 +135,8 @@ public class work2 {
 				}
 				
 				if(flag) {
-					if (data<0123||data>max) {
-						System.out.println("请录入0123-"+max+"的整数");
+					if (data<1234||data>max) {
+						System.out.println("请录入1234-"+max+"的整数");
 					}else {
 						return temp;
 					}

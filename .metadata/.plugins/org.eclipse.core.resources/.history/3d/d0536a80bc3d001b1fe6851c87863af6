@@ -136,8 +136,8 @@ public class work2 {
 				}
 				
 				if(flag) {
-					if (data<0123||data>max) {
-						System.out.println("请录入0123-"+max+"的整数");
+					if (data<123||data>max) {
+						System.out.println("请录入1234-"+max+"的整数");
 					}else {
 						return temp;
 					}
