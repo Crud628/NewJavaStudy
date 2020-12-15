@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/echarts.common.min.js"></script>
+</head>
+<body>
+<h1>销售数据统计</h1>
+<h2>3月笔记本电脑</h2>
+<h3>3月份我司各品牌笔记本电脑销售数据</h3>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+             title: {
+                text: '3月笔记本销量'
+            }, 
+            tooltip: {},
+             legend: {
+                data:['销量']
+            }, 
+            xAxis: {
+                data: ["联想","戴尔","华硕","苹果","惠普","弘基"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

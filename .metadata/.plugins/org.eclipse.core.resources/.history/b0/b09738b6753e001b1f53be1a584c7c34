@@ -1,0 +1,9 @@
+package Day6;
+
+public class Demo {
+	public static void main(String[] args) {
+		BirthDay b1 = new BirthDay(2000,1,1);
+		BirthDay b2 = new BirthDay(2000,1,1);
+		System.out.println(b1==b2);
+	}
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="js/echarts.common.min.js"></script>
+</head>
+<body>
+<h1>购物商城手机销量</h1>
+本月计划销售2500部，实际销售3000部，受到<span style="color:red">OPPO新机发布</span>影响本月销量同比增长5%<br>
+<h2>3月手机销售数据</h2>
+<table border="1">
+    <tr>
+        <td>品牌</td>
+        <td>销量</td>
+    </tr>
+    <tr>
+        <td>小米</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>苹果</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>华为</td>
+        <td>400</td>
+    </tr>
+    <tr>
+        <td>VIVO</td>
+        <td>500</td>
+    </tr>
+    <tr>
+        <td>oppo</td>
+        <td>600</td>
+    </tr>
+</table>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;margin:0 auto"></div>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    myChart.setOption({
+        series: [
+            {
+                name: '3月手机销售',
+                type: 'pie',
+                radius: '70%',
+                data: [
+                    {value: 235, name: '小米'},
+                    {value: 674, name: '苹果'},
+                    {value: 310, name: '华为'},
+                    {value: 435, name: 'vivo'},
+                    {value: 500, name: 'oppo'}
+                ]
+            }
+        ]
+    });
+</script>
+
+</body>
+</html>
