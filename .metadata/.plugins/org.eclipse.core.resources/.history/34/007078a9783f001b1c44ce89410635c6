@@ -1,0 +1,7 @@
+package Day7Test;
+
+public class Hero {
+	private String skill1;
+	private String skill2;
+	private String skill3;
+}

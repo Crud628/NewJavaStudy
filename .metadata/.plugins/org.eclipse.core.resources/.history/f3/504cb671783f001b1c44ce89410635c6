@@ -1,0 +1,6 @@
+package Day7Test;
+
+public interface Magic {
+	void m_buff();
+	void m_debuff();
+}

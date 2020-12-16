@@ -1,0 +1,10 @@
+package Day7Test;
+
+public abstract class a {
+	String mm;
+	int nn;
+	abstract void teach();
+	public static  void play() {
+		
+	};
+}

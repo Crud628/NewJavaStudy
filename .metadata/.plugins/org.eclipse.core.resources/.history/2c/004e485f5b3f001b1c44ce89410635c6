@@ -1,0 +1,23 @@
+package Day7;
+
+public class VehicleTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Vehicle v = new Vehicle("Vehicle",100);
+		v.show();
+		v.run();
+		System.out.println("-----------------上转型----------------------");
+		//上转型
+		Vehicle v2 = new Car("Car1",200);
+		v2.show();
+		v2.run();
+		System.out.println("-----------------下转型----------------------");
+		Car v3 = (Car)v2;
+		v3.run();
+		v3.show();
+		System.out.println("-----------------批量操作----------------------");
+		
+	}
+
+}

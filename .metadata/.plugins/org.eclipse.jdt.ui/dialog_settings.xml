@@ -34,6 +34,11 @@
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
 	</section>
 	<section name="SourceActionDialog.constructors">
 		<item key="VisibilityModifier" value="1"/>
@@ -56,7 +61,7 @@
 	</section>
 	<section name="DialogBounds_AddUnimplementedConstructorsDialog">
 		<item key="DIALOG_X_ORIGIN" value="110"/>
-		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_Y_ORIGIN" value="5"/>
 		<item key="DIALOG_WIDTH" value="568"/>
 		<item key="DIALOG_HEIGHT" value="686"/>
 		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
@@ -79,14 +84,14 @@
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item key="DIALOG_X_ORIGIN" value="163"/>
-		<item key="DIALOG_Y_ORIGIN" value="-26"/>
+		<item key="DIALOG_Y_ORIGIN" value="5"/>
 		<item key="DIALOG_WIDTH" value="581"/>
 		<item key="DIALOG_HEIGHT" value="760"/>
 		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">
 		<item key="DIALOG_X_ORIGIN" value="257"/>
-		<item key="DIALOG_Y_ORIGIN" value="-26"/>
+		<item key="DIALOG_Y_ORIGIN" value="5"/>
 		<item key="DIALOG_WIDTH" value="510"/>
 		<item key="DIALOG_HEIGHT" value="752"/>
 		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
@@ -100,5 +105,9 @@
 		<item key="DIALOG_WIDTH" value="576"/>
 		<item key="DIALOG_HEIGHT" value="562"/>
 		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
 	</section>
 </section>

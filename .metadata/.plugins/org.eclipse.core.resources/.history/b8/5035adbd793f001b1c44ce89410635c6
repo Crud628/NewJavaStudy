@@ -1,0 +1,6 @@
+package Day7Test;
+
+public interface Physics {
+	void p_buff();
+	void p_debuff();
+}

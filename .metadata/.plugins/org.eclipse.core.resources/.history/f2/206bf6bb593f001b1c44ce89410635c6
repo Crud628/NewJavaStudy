@@ -1,0 +1,14 @@
+package Day7;
+
+public class VehicleTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Vehicle v = new Vehicle("A",100);
+		
+		
+		//上转型
+		
+	}
+
+}
