@@ -12,4 +12,4 @@
 
 [Day5：](test/src/Day5)OOP基础
 
-[Day6：](test/src/Day6)对象的封装与继承以及相关关键字
+[Day6：](test/src/Day6)对象的封装与继承以及相关关键字   [BigDecimal](笔记/BigDecimal.md)
