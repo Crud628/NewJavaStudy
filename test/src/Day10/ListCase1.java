@@ -23,6 +23,7 @@ public class ListCase1 {
 			}
 			l.add(i,temp);
 		}
+		
 		for (int i = 0; i < l.size() - 1; i++) {
 			for (int j = i + 1; j < l.size(); j++) {
 				if(l.get(i)>l.get(j)) {

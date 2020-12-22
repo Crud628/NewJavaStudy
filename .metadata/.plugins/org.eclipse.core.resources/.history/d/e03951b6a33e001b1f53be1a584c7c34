@@ -1,5 +1,0 @@
-package Day6;
-
-public class Parrot  extends Bird{
-	
-}
