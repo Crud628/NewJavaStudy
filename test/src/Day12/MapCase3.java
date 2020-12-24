@@ -70,13 +70,13 @@ public class MapCase3 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		String s = sc.next();
-		Set<Entry<Integer,ContryM>> map_entry=map.entrySet(); //把map集合 变为 泛型为 双列模式的 Set集合
-		for(Entry<Integer,ContryM> each:map_entry) {
-			if(each.getValue().getNum1().equals(s)) {
-				System.out.println(each.getKey());
-			}
-		}
+//		String s = sc.next();
+//		Set<Entry<Integer,ContryM>> map_entry=map.entrySet(); //把map集合 变为 泛型为 双列模式的 Set集合
+//		for(Entry<Integer,ContryM> each:map_entry) {
+//			if(each.getValue().getNum1().equals(s)) {
+//				System.out.println(each.getKey());
+//			}
+//		}
 		
 		Map<String,String> m = new HashMap<String, String>();
 		m.put("冠军", "");
