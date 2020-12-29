@@ -120,7 +120,7 @@ public class IODemo2 {
 //				ops.write(temp);
 //			}
 			
-			//15ms以下
+			//15ms左右
 			byte[] data=new byte[1024];
 			int len=0;
 			while ((len=ins.read(data))!=-1) {
