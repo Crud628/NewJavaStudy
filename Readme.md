@@ -66,4 +66,5 @@
 
 [Day1：](MySql笔记/MySql笔记Day1.md)      基础的DML与DDL
 
-[Day1：](MySql笔记/MySql笔记Day2.md)     
+[Day2：](MySql笔记/MySql笔记Day2.md)     多表查询，连接   
+
