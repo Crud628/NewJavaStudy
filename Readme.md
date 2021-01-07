@@ -1,6 +1,24 @@
 # Readme
 
+目录              
 
+[1.HTML](#HTML阶段)           [HTML笔记](html笔记)                [HTML项目](html项目)
+
+[2.Java](#Java阶段)              [Java代码](test/src)                    [Java笔记](笔记)
+
+[3.MySql](#MySql阶段)          [MySql练习和数据](MySql笔记)
+
+
+
+## HTML阶段
+
+比较混乱，暂不记录
+
+
+
+
+
+## Java阶段
 
 [Day1：](test/src/Day01)IDE，基本数据类型，流程控制
 
@@ -39,3 +57,13 @@
 [Day18：](test/src/Day18) 抽象工厂   内部类
 
 [Day19：](test/src/Day19) 线程
+
+
+
+
+
+## MySql阶段
+
+[Day1：](MySql笔记/MySql笔记Day1.md)      基础的DML与DDL
+
+[Day1：](MySql笔记/MySql笔记Day2.md)     

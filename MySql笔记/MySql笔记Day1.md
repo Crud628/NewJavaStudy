@@ -153,8 +153,8 @@ select * from member where department in ('市场部','生产部','人力部') a
 select * from member where name like '%小%'
 select * from member where LOCATE('小',name) > 0
 -- 思考：查询市场部工资在3000至5000元的员工信息 
-select * from member where salary between 3000 and 5000;
-select * from member where salary>3000 and salary <5000;
+select * from member where department = '市场部' and salary between 3000 and 5000;
+select * from member where department = '市场部' and salary>3000 and salary <5000;
 ```
 
 
