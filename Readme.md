@@ -1,14 +1,18 @@
 # Readme
 
-目录              
+目录     
 
-[1.HTML](#HTML阶段)           [HTML笔记](html笔记)                [HTML项目](html项目)
+​         
 
-[2.Java](#Java阶段)              [Java代码](test/src)                    [Java笔记](笔记)
+| 目录电梯              |                              |                      |
+| --------------------- | ---------------------------- | -------------------- |
+| [1.HTML](#HTML阶段)   | [HTML笔记](html笔记)         | [HTML项目](html项目) |
+| [2.Java](#Java阶段)   | [Java代码](test/src)         | [Java笔记](笔记)     |
+| [3.MySql](#MySql阶段) | [MySql练习和数据](MySql笔记) |                      |
 
-[3.MySql](#MySql阶段)          [MySql练习和数据](MySql笔记)
+​           
 
-
+​              
 
 ## HTML阶段
 
