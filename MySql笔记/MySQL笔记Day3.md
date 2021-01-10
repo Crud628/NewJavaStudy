@@ -95,7 +95,7 @@ where no < 4
 ### 2.思考：查询各人员及所在公司信息
 
 ```mysql
-
+select s.id,s.name,s.salesvolume,ifnull(m.`name`,'未知') companyname from sales s left join company m on s.companyid = m.id
 ```
 
 
@@ -103,7 +103,22 @@ where no < 4
 ### 3.思考：得到各公司的人数
 
 ```mysql
-
+SELECT
+	m.`name`,
+	ifnull(cc.num,0)
+FROM
+	company m left join (
+	SELECT
+		c.NAME companyname,
+		count(*) num 
+	FROM
+		sales s,
+		company c 
+	WHERE
+		s.companyid = c.id 
+	GROUP BY
+	c.`name` 
+	) cc ON cc.companyname = m.`name`
 ```
 
 
@@ -111,7 +126,22 @@ where no < 4
 ### 4.思考：得到各公司的销售总额
 
 ```mysql
-
+SELECT
+	m.`name`,
+	ifnull(cc.num,0)
+FROM
+	company m left join (
+	SELECT
+		c.NAME companyname,
+		sum(salesvolume) num 
+	FROM
+		sales s,
+		company c 
+	WHERE
+		s.companyid = c.id 
+	GROUP BY
+	c.`name` 
+	) cc ON cc.companyname = m.`name`
 ```
 
 
@@ -120,7 +150,44 @@ where no < 4
 两种方法：
 
 ```mysql
+SELECT
+	c.id,
+	c.NAME,
+	c.salesvolume,
+	c.companyname 
+FROM
+	(
+	SELECT
+		s.id,
+		s.NAME,
+		s.salesvolume,
+		ifnull( m.`name`, '未知' ) companyname 
+	FROM
+		sales s
+		LEFT JOIN company m ON s.companyid = m.id 
+		) c,(
+	SELECT
+		max( salesvolume ) max 
+	FROM
+		sales 
+	) cc 
+WHERE
+	c.salesvolume = cc.max
+```
 
+
+
+```mysql
+SELECT
+	s.id,
+	s.NAME,
+	s.salesvolume,
+	ifnull( m.`name`, '未知' ) companyname 
+FROM
+	sales s
+	LEFT JOIN company m ON s.companyid = m.id
+order by salesvolume desc
+LIMIT 1
 ```
 
 
@@ -128,7 +195,23 @@ where no < 4
 ### 6.思考：薪水比andy高的人员名单（emptest）
 
 ```mysql
-
+SELECT
+	e.id,
+	e.NAME,
+	e.salary,
+	e.mgrname,
+	e.deptno,
+	e.depyname 
+FROM
+	emptest e
+WHERE
+	salary >(
+	SELECT
+		t.salary 
+	FROM
+		emptest t
+WHERE
+	t.NAME = 'andy')
 ```
 
 
@@ -136,7 +219,13 @@ where no < 4
 ### 7.思考：哪个部门的平均薪水最高（emptest）
 
 ````mysql
-
+SELECT
+	c.avg,
+	c.depyname
+FROM
+	( SELECT depyname, avg( salary ) avg FROM emptest GROUP BY depyname ) c
+	ORDER BY c.avg
+	limit 1
 ````
 
 
@@ -144,6 +233,12 @@ where no < 4
 ### 8.思考：各个部门中工资大于5000的员工人数
 
 ```mysql
-
+SELECT
+	c.depyname,
+	count(*) 
+FROM
+	( SELECT id, NAME, salary, mgrname, deptno, depyname FROM emptest WHERE salary > 5000 ) c 
+GROUP BY
+	c.depyname
 ```
 
