@@ -72,4 +72,6 @@
 
 [Day2：](MySql笔记/MySql笔记Day2.md)     多表查询，连接   
 
-[Day3：](MySql笔记/MySql笔记Day3.md)      常用函数  分页
+[Day3：](MySql笔记/MySQL笔记Day3.md)      常用函数  分页
+
+[Day4：](MySql笔记/MySQL笔记Day4.md)       约束  视图  索引  序列
