@@ -56,7 +56,13 @@ insert into tableTest1(id,name,age) values (5,'张5',25)
 ### 1.2   复合主键约束
 
 ```mysql
-
+--创建表时指定主键
+create table tableTest2(
+id varchar(16),
+name varchar(20),
+score varchar(3) not null,
+constraint aabb frimary key(id,name)   --复合主键
+);
 ```
 
 #### 创建表之后添加主键
@@ -64,6 +70,14 @@ insert into tableTest1(id,name,age) values (5,'张5',25)
 ```mysql
 alter table tableTest3 add constraint
 tableTest3_pri primary key(id,name);
+```
+
+
+
+#### 删除主键
+
+```mysql
+alter table tableTest2 drop primary key;
 ```
 
 
@@ -161,7 +175,18 @@ select * from member_view
 和对基本表的修改一致
 
 ```mysql
+-- 对视图的修改都会转为对基本表的修改
+update member_view set name='小赵视图修改' where id='4';
 
+create or replace view stuScore_view as
+select stu.name student, subject.name subject,
+score from stu,subject,score
+where stu.id = score.sid and subject.id = score.sbjid;
+
+select * from stuScore_view where student='张三';
+
+insert into stuScore_view values('李四','国学1',98)	--错误，因为视图里是多表
+insert into member_view values(11,'张11','男','生产部');--正确，因为视图里是单表
 ```
 
 
