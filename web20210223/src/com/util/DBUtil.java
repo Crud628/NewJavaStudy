@@ -1,6 +1,5 @@
 package com.util;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +13,6 @@ import java.util.Properties;
 
 public class DBUtil {
 	private static Connection connection;
-	private static PreparedStatement pst;
 
 	/**
 	 * 得到连接接口

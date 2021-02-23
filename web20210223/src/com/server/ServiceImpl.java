@@ -12,7 +12,4 @@ public class ServiceImpl implements ServiceInterface{
 		return userDao.addUser(user);
 	}
 
-
-
-
 }
