@@ -1,7 +1,0 @@
-package Day7;
-
-public interface VV {
-	default void stop() {
-		
-	}
-}

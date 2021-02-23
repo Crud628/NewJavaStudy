@@ -1,5 +1,0 @@
-package Day7Test;
-
-public interface Attack extends Magic,Physics{
-	void MP_buff();
-}
