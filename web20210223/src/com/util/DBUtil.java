@@ -3,6 +3,7 @@ package com.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,12 +21,13 @@ public class DBUtil {
 	 * 
 	 * @return
 	 */
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		// 导入对应的jar包
 		try {
 			// 0.读取.properties文件
 			Properties pps = new Properties();
-			pps.load(new FileInputStream("src\\mysql.properties"));
+			InputStream is = DBUtil.class.getClassLoader().getResourceAsStream("mysql.properties");
+			pps.load(is);
 
 			// 1.加载驱动
 			Class.forName(pps.getProperty("driver"));

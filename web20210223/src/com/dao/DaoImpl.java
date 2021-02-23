@@ -25,8 +25,8 @@ public class DaoImpl implements DaoInterface{
 			pre = conn.prepareStatement(sql);
 			pre.setString(1, user.getUsername());
 			pre.setString(2, user.getUserpass());
-			ResultSet rs = pre.executeQuery();
-			if(rs.next()) {
+			int rs = pre.executeUpdate();
+			if(rs == 1) {
 				return 1;
 			}
 		} catch (SQLException e) {
