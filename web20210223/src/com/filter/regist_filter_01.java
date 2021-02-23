@@ -10,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class regist_filter_01
@@ -45,7 +46,14 @@ public class regist_filter_01 implements Filter {
 		String url = req.getRequestURI();
 		if(url.indexOf("RegisUserServlet")>=0) {
 			if(username.contains("s")||username.contains("f")) {
-				res.sendRedirect("../html/index.html");
+				
+				username = username.replace("s", "*");
+				username = username.replace("f", "*");
+//				System.out.println(username);
+				HttpSession session = req.getSession();
+				session.setAttribute("username", username);
+				chain.doFilter(request, response);
+//				res.sendRedirect("../html/index.html");
 			}else {
 				chain.doFilter(request, response);
 			}

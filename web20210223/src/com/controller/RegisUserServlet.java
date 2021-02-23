@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.pojo.User;
 import com.server.ServiceImpl;
@@ -53,7 +54,9 @@ public class RegisUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String username = request.getParameter("username");
+//		String username = request.getParameter("username");
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
 		String userpass = request.getParameter("userpass");
 		User user = new User(username,userpass);
 		ServiceImpl si = new ServiceImpl();
