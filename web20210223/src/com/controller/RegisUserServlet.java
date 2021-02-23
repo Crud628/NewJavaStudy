@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pojo.User;
+import com.server.ServiceImpl;
+
 /**
  * Servlet implementation class RegisUserServlet
  */
@@ -52,8 +55,15 @@ public class RegisUserServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String username = request.getParameter("username");
 		String userpass = request.getParameter("userpass");
-		
-		System.out.println(username+" "+userpass);
+		User user = new User(username,userpass);
+		ServiceImpl si = new ServiceImpl();
+		int result = si.addUser(user);
+		if(result==1) {
+			response.sendRedirect("");
+		}else {
+			response.sendRedirect("");
+		}
+//		System.out.println(username+" "+userpass);
 	}
 
 	/**
