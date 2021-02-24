@@ -1,5 +1,8 @@
 package com.server;
 
+import java.util.ArrayList;
+
+import com.pojo.Member;
 import com.pojo.User;
 
 public interface ServiceInterface{
@@ -12,4 +15,18 @@ public interface ServiceInterface{
 	 */
 	int addUser(User user);
 	
+	/**
+	 * 	查询一个员工
+	 * @param id
+	 * @return
+	 */
+	Member queryOne(int id);
+	
+	
+	
+	/**
+	 * 	查询所有员工
+	 * @return
+	 */
+	ArrayList<Member> queryAll();
 }
