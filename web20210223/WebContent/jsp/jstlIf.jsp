@@ -10,10 +10,23 @@
 </head>
 <body>
 
+
 	<c:if test="${not empty member}">
 		<c:out value="${member.id}"></c:out>
 		<c:out value="${member.name}"></c:out>
 		<c:out value="${member.sex}"></c:out>
+		<c:out value="${member.salary}"></c:out>
+		<c:choose >
+			<c:when test="${member.salary<2000}">
+				低
+			</c:when>
+			<c:when test="${member.salary<4000}">
+				中
+			</c:when>
+			<c:when test="${member.salary>2000}">
+				高
+			</c:when>
+		</c:choose>
 	</c:if>
 	<c:if test="${empty member}">
 		<c:out value="该id无员工"  />

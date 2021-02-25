@@ -27,4 +27,8 @@ public class ServiceImpl implements ServiceInterface{
 		return userDao.queryAll();
 	}
 
+	@Override
+	public boolean queryUser(User user){
+		return userDao.queryUser(user);
+	}
 }

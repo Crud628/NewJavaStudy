@@ -1,4 +1,4 @@
-package com.util;
+package com.idea.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -35,7 +35,7 @@
 			}
 			
 		%>
-		
+
 		
 	</table>
 		<table border="1" cellspacing ="0" cellpadding="0">
@@ -58,5 +58,6 @@
 		</tr>
 	</c:forEach>
 	</table>
+	${10 mod 2}
 </body>
 </html>
