@@ -62,10 +62,11 @@ public class MemberOne extends HttpServlet {
 		int id = Integer.parseInt(ids);
 		ServiceImpl ss = new ServiceImpl();
 		Member m = ss.queryOne(id);
-		
+		System.out.println(m);
 		HttpSession session = request.getSession();
 		session.setAttribute("member", m);
-		response.sendRedirect("jsp/memberOne.jsp");
+//		response.sendRedirect("jsp/memberOne.jsp");
+		response.sendRedirect("jsp/jstlIf.jsp");
 	}
 
 	/**

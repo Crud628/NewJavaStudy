@@ -57,9 +57,10 @@ public class DaoImpl implements DaoInterface{
 				m.setAge(rs.getInt("age"));
 				m.setSalary(rs.getInt("salary"));
 				m.setDepartment(rs.getString("department"));
+				return m;
 			}
 			
-			return m;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
