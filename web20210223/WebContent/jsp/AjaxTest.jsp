@@ -22,5 +22,6 @@
 	<input type="text" id="input_03">
 	<span id="show"></span>
 <script src = "../js/AjaxTest.js"></script>
+
 </body>
 </html>
