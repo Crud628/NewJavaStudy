@@ -35,4 +35,11 @@ public interface ServiceInterface{
 	 * @return
 	 */
 	boolean queryUser(User user);
+
+	/**
+	 *   查找用户是否存在
+	 * @param username
+	 * @return
+	 */
+	boolean queryUserName(String username);
 }

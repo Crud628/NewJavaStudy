@@ -7,12 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="../Servlet/RegisUserServlet">
+	<form action="../RegisUserServlet">
 		<span>用户名</span>
-		<input type="text" name="username"><br/>
+		<input type="text" name="username" id="username"><span id="show"></span><br/>
 		<span>用户密码</span>
-		<input type="password" name="userpass"><br/>
-		<button>注册</button>
+		<input type="password" name="userpass" id="userpass"><br/>
+		<button id="registBtn">注册</button>
+<%--		<input type="text" id="registBtn">--%>
 	</form>
+<script src="../js/UserRegist.js"></script>
 </body>
 </html>

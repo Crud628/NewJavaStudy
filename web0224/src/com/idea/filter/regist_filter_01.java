@@ -38,6 +38,8 @@ public class regist_filter_01 implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse res = (HttpServletResponse)response;
 		

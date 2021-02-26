@@ -11,7 +11,8 @@ public class Login_filter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
         HttpServletRequest request = (HttpServletRequest)req;
         HttpServletResponse response = (HttpServletResponse)resp;
         HttpSession session = request.getSession();

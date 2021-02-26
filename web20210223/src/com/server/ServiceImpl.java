@@ -26,5 +26,12 @@ public class ServiceImpl implements ServiceInterface{
 		// TODO Auto-generated method stub
 		return userDao.queryAll();
 	}
+	
+	
+	@Override
+	public boolean queryUser(User u) {
+		// TODO Auto-generated method stub
+		return userDao.queryUser(u);
+	}
 
 }

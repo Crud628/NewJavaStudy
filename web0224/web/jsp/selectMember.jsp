@@ -17,9 +17,11 @@
 	</form>
 <c:if test="${not empty uname}">
 	<c:out value="${uname}，已登录"></c:out>
+	<input type="button" value="退出登录" onclick="login()">
 </c:if>
 <c:if test="${empty uname}">
 	<c:out value="退出登录"></c:out>
 </c:if>
+<script src="../js/ExitLogin.js"></script>
 </body>
 </html>

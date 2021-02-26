@@ -104,4 +104,29 @@ public class DaoImpl implements DaoInterface{
 		return null;
 	}
 
+	@Override
+	public boolean queryUser(User user){
+		dbConn = new DBUtil();
+		Connection conn = dbConn.getConnection();
+		PreparedStatement pre = null;
+		ArrayList<Member> members = new ArrayList<Member>();
+		try {
+			String sql = SQLUtil.USER_LOGIN;
+			pre = conn.prepareStatement(sql);
+			pre.setString(1,user.getUsername());
+			pre.setString(2,user.getUserpass());
+			ResultSet rs = pre.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+		return false;
+	}
+
 }

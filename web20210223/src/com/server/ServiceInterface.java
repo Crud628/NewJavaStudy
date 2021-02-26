@@ -29,4 +29,12 @@ public interface ServiceInterface{
 	 * @return
 	 */
 	ArrayList<Member> queryAll();
+	
+	
+	/**
+	 *    登录
+	 * @param user
+	 * @return
+	 */
+	boolean queryUser(User u);
 }

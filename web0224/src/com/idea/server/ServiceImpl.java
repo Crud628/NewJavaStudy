@@ -31,4 +31,9 @@ public class ServiceImpl implements ServiceInterface{
 	public boolean queryUser(User user){
 		return userDao.queryUser(user);
 	}
+
+	@Override
+	public boolean queryUserName(String username){
+		return userDao.queryUserName(username);
+	}
 }
