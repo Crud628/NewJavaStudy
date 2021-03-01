@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/mPage.js"></script>
+</head>
+<body>
+    <h1>员工列表</h1>
+    <div id="main">
+        <table border="1" cellpadding="0" cellspacing="0" id="show_list">
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>部门</th>
+                <th>年龄</th>
+            </tr>
+        </table>
+        <input type="button" value="首页" id="index_btn" onclick="switchBtn(1)">
+        <input type="button" value="<" id="left_btn" onclick="switchBtn(2)">
+        <span>页数</span>
+        <span id="currentPage">1</span>
+        <span id="totalPage">/1</span>
+        <input type="button" value=">" id="right_btn" onclick="switchBtn(3)">
+    </div>
+</body>
+</html>
