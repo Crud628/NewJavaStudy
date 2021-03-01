@@ -1,3 +1,4 @@
-/out
-/.idea
-web0224.iml
+/out/
+/.idea/
+*.class
+*.iml
