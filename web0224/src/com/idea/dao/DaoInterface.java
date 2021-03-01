@@ -44,4 +44,11 @@ public interface DaoInterface {
 	 * @return
 	 */
 	boolean queryUserName(String username);
+
+    /**
+     *  分页查询member列表
+     * @param page  页数
+     * @return
+     */
+	ArrayList<Member> queryMemberPage(int page);
 }

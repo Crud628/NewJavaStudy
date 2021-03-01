@@ -40,6 +40,30 @@
         <servlet-name>Servlet</servlet-name>
         <servlet-class>com.idea.controller.Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ajaxQueryServlet</servlet-name>
+        <servlet-class>com.idea.controller.ajaxQueryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>memberList</servlet-name>
+        <servlet-class>com.idea.controller.memberList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MemberPageServlet</servlet-name>
+        <servlet-class>com.idea.controller.MemberPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MemberPageServlet</servlet-name>
+        <url-pattern>/memberPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>memberList</servlet-name>
+        <url-pattern>/memberList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajaxQueryServlet</servlet-name>
+        <url-pattern>/aq</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/aaaaaa</url-pattern>

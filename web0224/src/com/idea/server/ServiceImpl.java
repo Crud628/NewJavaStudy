@@ -36,4 +36,9 @@ public class ServiceImpl implements ServiceInterface{
 	public boolean queryUserName(String username){
 		return userDao.queryUserName(username);
 	}
+
+    @Override
+    public ArrayList<Member> queryMemberPage(int page) {
+        return userDao.queryMemberPage(page);
+    }
 }

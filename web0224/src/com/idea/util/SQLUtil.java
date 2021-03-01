@@ -6,4 +6,5 @@ public class SQLUtil {
 	public static String select_all_members = "SELECT id, name, sex, salary, department, age FROM member";
 	public static String USER_LOGIN = "SELECT user_id, user_name, user_pass FROM mytest.user_list WHERE user_name=? and user_pass=?";
 	public static String USER_NAME = "SELECT user_id, user_name, user_pass FROM mytest.user_list WHERE user_name=?";
+	public static String MEMBER_PAGE = "SELECT id, name, sex, salary, department, age FROM member LIMIT ?,?";
 }

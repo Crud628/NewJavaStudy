@@ -152,4 +152,38 @@ public class DaoImpl implements DaoInterface{
 		return false;
 	}
 
+    @Override
+    public ArrayList<Member> queryMemberPage(int page) {
+        // TODO Auto-generated method stub
+        dbConn = new DBUtil();
+        Connection conn = dbConn.getConnection();
+        PreparedStatement pre = null;
+        ArrayList<Member> members = new ArrayList<Member>();
+        try {
+            String sql = SQLUtil.MEMBER_PAGE;
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1,(page-1)*3);
+            pre.setInt(2,page*3);
+            ResultSet rs = pre.executeQuery();
+            while(rs.next()) {
+                Member m = new Member();
+                m.setId(rs.getInt("id"));
+                m.setName(rs.getString("name"));
+                m.setSex(rs.getString("sex"));
+                m.setAge(rs.getInt("age"));
+                m.setSalary(rs.getInt("salary"));
+                m.setDepartment(rs.getString("department"));
+                members.add(m);
+            }
+
+            return members;
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        return null;
+
+    }
 }
