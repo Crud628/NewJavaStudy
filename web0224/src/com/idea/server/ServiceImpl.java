@@ -41,4 +41,9 @@ public class ServiceImpl implements ServiceInterface{
     public ArrayList<Member> queryMemberPage(int page) {
         return userDao.queryMemberPage(page);
     }
+
+	@Override
+	public int getMemberTotal() {
+		return userDao.getMemberTotal();
+	}
 }

@@ -163,7 +163,7 @@ public class DaoImpl implements DaoInterface{
             String sql = SQLUtil.MEMBER_PAGE;
             pre = conn.prepareStatement(sql);
             pre.setInt(1,(page-1)*3);
-            pre.setInt(2,page*3);
+            pre.setInt(2,3);
             ResultSet rs = pre.executeQuery();
             while(rs.next()) {
                 Member m = new Member();
@@ -186,4 +186,25 @@ public class DaoImpl implements DaoInterface{
         return null;
 
     }
+
+	@Override
+	public int getMemberTotal() {
+		dbConn = new DBUtil();
+		Connection conn = dbConn.getConnection();
+		PreparedStatement pre = null;
+		try {
+			String sql = SQLUtil.MEMBER_TOTAL;
+			pre = conn.prepareStatement(sql);
+			ResultSet rs = pre.executeQuery();
+			if(rs.next()) {
+				int flag = rs.getInt(1);
+				flag = (int)Math.ceil((double)(flag)/3);
+				return flag;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

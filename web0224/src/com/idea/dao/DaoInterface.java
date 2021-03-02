@@ -46,9 +46,16 @@ public interface DaoInterface {
 	boolean queryUserName(String username);
 
     /**
-     *  分页查询member列表
-     * @param page  页数
-     * @return
-     */
+	 *  分页查询member列表
+	 * @param page  页数
+	 * @return
+	 */
 	ArrayList<Member> queryMemberPage(int page);
+
+
+	/**
+	 * 得到员工数量
+	 * @return
+	 */
+	int getMemberTotal();
 }

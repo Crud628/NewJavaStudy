@@ -30,6 +30,7 @@ function switchBtn(i) {
         case 1:
             currentPage=1;
             Pages(1);
+            $("#currentPage").text(currentPage);
             break;
             //上一页
         case 2:

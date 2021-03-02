@@ -51,4 +51,11 @@ public interface ServiceInterface{
      * @return
      */
     ArrayList<Member> queryMemberPage(int page);
+
+
+	/**
+	 * 得到员工数量
+	 * @return
+	 */
+	int getMemberTotal();
 }

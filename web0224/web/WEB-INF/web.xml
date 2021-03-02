@@ -52,6 +52,14 @@
         <servlet-name>MemberPageServlet</servlet-name>
         <servlet-class>com.idea.controller.MemberPageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MemberTotalServlet</servlet-name>
+        <servlet-class>com.idea.controller.MemberTotalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MemberTotalServlet</servlet-name>
+        <url-pattern>/getMemberTotal</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MemberPageServlet</servlet-name>
         <url-pattern>/memberPage</url-pattern>
