@@ -9,17 +9,17 @@ $(document).ready(function(){
 
 //得到总页数
 function getTotalPage() {
-    $.ajax({
-        url:"../getMemberTotal",
-        type:"get",
-        datatype:"text",
-        success:function (data) {
-            totalPage = data;
-            $("#totalPage").text("/"+totalPage);
-        },
-        error:function () {
-            alert("总页数获取错误");
-        }
+        $.ajax({
+            url:"../getMemberTotal",
+            type:"get",
+            datatype:"text",
+            success:function (data) {
+                totalPage = data;
+                $("#totalPage").text("/"+totalPage);
+            },
+            error:function () {
+                alert("总页数获取错误");
+            }
     })
 }
 
@@ -42,7 +42,7 @@ function switchBtn(i) {
             }
             $("#currentPage").text(currentPage);
             break;
-        default:
+        case 3:
             if(currentPage >= totalPage){
                 currentPage=1;
                 Pages(1);
@@ -51,7 +51,19 @@ function switchBtn(i) {
             }
             $("#currentPage").text(currentPage);
             break;
-
+        default:
+            var page = $("#iPage").val();
+            if (page <1 ){
+                alert("请输入1-"+totalPage+"页");
+                break;
+            }
+            if(page > totalPage){
+                alert("最大为"+totalPage+"页");
+                break;
+            }
+            currentPage = page;
+            Pages(currentPage);
+            $("#currentPage").text(currentPage);
     }
 }
 

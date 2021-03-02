@@ -21,13 +21,15 @@
                 <th>年龄</th>
             </tr>
         </table>
-        <div class="col-md-4 col-md-offset-4 text-center">
+        <div class="col-md-9 col-md-offset-1  text-center">
             <input type="button" value="首页" id="index_btn" onclick="switchBtn(1)" class="btn btn-default btn-primary">
             <input type="button" value="<" id="left_btn" onclick="switchBtn(2)" class="btn btn-default btn-primary">
             <span>页数</span>
             <span id="currentPage">1</span>
             <span id="totalPage">/1</span>
             <input type="button" value=">" id="right_btn" onclick="switchBtn(3)" class="btn btn-default btn-primary">
+            <input type="text" id="iPage">
+            <input type="button" class="btn btn-default btn-primary" id="jump" onclick="switchBtn(4)" value="跳转">
         </div>
     </div>
 </body>
