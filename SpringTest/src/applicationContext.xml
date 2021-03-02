@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+
+    <bean name="action_01" class="com.idea.lan.action.Action01" scope="singleton" lazy-init="true">
+<!--        <property name="message">-->
+<!--            <value>成员变量属性值</value>-->
+<!--        </property>-->
+        
+        <!-- -->
+        <constructor-arg index="0" type="java.lang.String" value="还是成员变量"></constructor-arg>
+        
+    </bean>
+
+    <bean name="ff" class="com.idea.lan.action.User" scope="singleton">
+        <property name="id" value="1"></property>
+        <property name="name" value="ff"></property>
+        <property name="birthDay" value="1998-06-28"></property>
+
+<!--        <constructor-arg index="0" type="java.lang.Integer" value="1"></constructor-arg>-->
+<!--        <constructor-arg index="1" type="java.lang.String" value="ff"></constructor-arg>-->
+<!--        <constructor-arg index="2" type="java.lang.String" value="1998-06-28"></constructor-arg>-->
+    </bean>
+
+<!--    <bean class ="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+<!--        <property name ="customEditors">-->
+<!--            <map>-->
+<!--                <entry key ="java.util.Date"> <ref local ="customDateEditor"/></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id ="customDateEditor" class ="org.springframework.beans.propertyeditors.CustomDateEditor">-->
+<!--        <constructor-arg>-->
+<!--            <bean class ="java.text.SimpleDateFormat">-->
+<!--                <constructor-arg value ="yyyy-MM-dd"/>-->
+<!--            </bean>-->
+<!--            </constructor-arg>-->
+<!--        <constructors-arg value ="true"/>-->
+<!--    </bean>-->
+    <bean name="listSetMap" class="com.idea.lan.action.ListSetMap">
+        <constructor-arg index="0" type="int" value="1"></constructor-arg>
+        <constructor-arg index="1" type="java.lang.String" value="1"></constructor-arg>
+        <property name="listValue">
+            <list>
+                <value type="java.lang.String">list1</value>
+                <value type="java.lang.String">list2</value>
+            </list>
+        </property>
+        <property name="setValue">
+            <set>
+                <value type="java.lang.String">set1</value>
+                <value type="java.lang.String">set2</value>
+            </set>
+        </property>
+        <property name="mapValue">
+            <map>
+                <entry key="1" value="map1"></entry>
+                <entry key="2" value="map2"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean name="demoController" class="com.idea.lan.controller.DemoController">
+        <property name="ser" ref="demoService"></property>
+    </bean>
+    <bean id="demoService" class="com.idea.lan.service.DemoService">
+        <property name="dao" ref="demoDao"></property>
+    </bean>
+    <bean id="demoDao" class="com.idea.lan.dao.DemoDao"></bean>
+    
+    <bean name="log" class="com.idea.lan.aop.AopLog"></bean>
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="log">
+            <aop:around method="runOnAround" pointcut="execution(* com.idea.lan.action.Action01.target_func())"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
