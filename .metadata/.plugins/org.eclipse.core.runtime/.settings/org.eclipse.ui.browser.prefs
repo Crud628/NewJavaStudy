@@ -1,4 +1,4 @@
 browser-choice=1
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
 eclipse.preferences.version=1
-internalWebBrowserHistory=http\://localhost\:8080/web20210223/aaa?username\=aaaa&userpass\=bbbb|*|http\://localhost\:8080/web20210223/html/index.html|*|
+internalWebBrowserHistory=file\:/D\:/javaEEWork/.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/1614752171657/index.html|*|file\:/D\:/Program Files/eclipse/plugins/org.springsource.ide.eclipse.commons.gettingstarted_3.9.16.202012221216-CI-B547/resources/welcome/index.html|*|http\://localhost\:8080/web20210223/aaa?username\=aaaa&userpass\=bbbb|*|http\://localhost\:8080/web20210223/html/index.html|*|
