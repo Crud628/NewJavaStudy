@@ -15,21 +15,16 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 	<!-- 扫描controller包 -->
-	<context:component-scan base-package="com.controller" />
+	<context:component-scan
+		base-package="com.controller" />
 	<!-- 开启注解方式 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- 视图解析器 进行jsp解析，默认使用jstl标签，classpath下的得有jstl的包 -->
-<!-- 	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView"></property>
-		配置jsp路径的前缀
-		<property name="prefix" value="/jsp/" />
-		配置jsp路径的后缀
-		<property name="suffix" value=".jsp" />
-
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property> 
+		配置jsp路径的前缀 <property name="prefix" value="/jsp/" /> 配置jsp路径的后缀 <property 
+		name="suffix" value=".jsp" /> </bean> -->
 	<!-- 视图解析器 进行html解析 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -39,11 +34,22 @@
 		<property name="suffix" value=".html" />
 	</bean>
 	<!-- @ResponseBody之后返回字符串中中文可能会出现乱码 因为sping mvc默认是text/plain;charset=ISO-8859-1，要支持中需做如下配置指定编码格式 -->
-	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
-		<property name="messageConverters"> <list> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
-		<property name="supportedMediaTypes"> <list> 返回字符串格式json <value>application/json;charset=UTF-8</value> 
-		</list> </property> </bean> </list> </property> </bean> -->
-	<!-- <mvc:annotation-driven>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<mvc:annotation-driven>
 		<mvc:message-converters
 			register-defaults="true">
 			<bean
@@ -60,5 +66,5 @@
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven> -->
+	</mvc:annotation-driven>
 </beans>
