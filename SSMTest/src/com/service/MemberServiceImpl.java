@@ -26,4 +26,12 @@ public class MemberServiceImpl implements MemberService{
 		return memberMapper.delMembers(ids);
 	}
 
+	@Override
+	public List<Member> getMemberPage(int i) {
+		// TODO Auto-generated method stub
+		int start = (i-1)*5;
+		int step = 5;
+		return memberMapper.getMemberPage(start,step);
+	}
+
 }

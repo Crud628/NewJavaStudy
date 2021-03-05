@@ -34,4 +34,11 @@ public class MemberController {
 		}
 	}
 	
+	@RequestMapping("getMemberPage")
+	@ResponseBody
+	public List<Member> getMemberPage(@RequestParam("pageNum")int i){
+		List<Member> list = memberservice.getMemberPage(i);
+		return list;
+	}
+	
 }

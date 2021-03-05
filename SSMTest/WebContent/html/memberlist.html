@@ -7,12 +7,22 @@
 <script src="../js/bootstrap.min.js"></script>
 <link href="../css/bootstrap.min.css" rel="stylesheet"></style>
 <script src="../js/mList.js"></script>
+<style type="text/css">
+	#show{
+		border:1px solid gray;
+	}
+	#banner{
+		hight:60px;
+		
+	}
+</style>
 </head>
 <body>
-<div class="col-md-offset-4 col-md-4">
-	<input type="button" class="btn btn-primary" value="查看" id="btn">
-	<input type="button" class="btn btn-warning" value="删除所选" id="remove" onclick="remove()">
-</div>
-	<div id="show" class=""></div>
+	<div id="show" class="container"></div>
+	
+	<div class="col-md-offset-4 col-md-4 text-center">
+		<input type="button" class="btn btn-primary" value="查看" id="btn">
+		<input type="button" class="btn btn-warning" value="删除所选" id="remove" onclick="remove()">
+	</div>
 </body>
 </html>

@@ -9,4 +9,6 @@ public interface MemberService {
 	List<Member> getMemberList();
 
 	boolean delMembers(String[] ids);
+
+	List<Member> getMemberPage(int i);
 }

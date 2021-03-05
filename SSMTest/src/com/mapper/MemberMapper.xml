@@ -11,4 +11,8 @@
 			#{each}
 		</foreach>
 	</delete>
+	
+	<select id="getMemberPage" parameterType="int" resultType="Member">
+		SELECT Id, name, sex, salary, department, age FROM member limit #{param1},#{param2}
+	</select>
 </mapper>
