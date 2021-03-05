@@ -16,4 +16,6 @@ public interface UserService {
 
 	boolean transactionTest(List<User> list);
 
+	boolean insertUsers(List<User> list);
+
 }

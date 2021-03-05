@@ -5,4 +5,10 @@
 		INSERT INTO mytest.user_list (user_name, user_pass) VALUES(#{user_name,jdbcType=VARCHAR},#{user_pass,jdbcType=VARCHAR})
 	</insert>
 	
+	<insert id="insertUsers" parameterType="User">
+		insert into user_list (user_name, user_pass) VALUES
+		<foreach collection="list" item="each" index="index" separator=",">
+			(#{each.user_name},#{each.user_pass})
+		</foreach>
+	</insert>
 </mapper>

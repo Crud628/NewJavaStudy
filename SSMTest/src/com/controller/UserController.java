@@ -36,7 +36,8 @@ public class UserController {
 		for(int index=0;index<usernames.length-1;index++) {
 			list.add(new User(usernames[index],userpass[index]));
 		}
-		boolean flag = service.transactionTest(list);
+		//boolean flag = service.transactionTest(list);
+		boolean flag = service.insertUsers(list);
 		if(flag) {
 			return "redirect:/html/a.html";
 		}else {

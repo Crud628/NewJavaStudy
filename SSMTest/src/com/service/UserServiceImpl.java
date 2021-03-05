@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean insertUsers(List<User> list) {
+		// TODO Auto-generated method stub
+		return userMapper.insertUsers(list);
+	}
 	
 	
 	
