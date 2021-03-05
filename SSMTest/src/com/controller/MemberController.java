@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,15 @@ public class MemberController {
 		return list;
 	}
 	
-	
+	@RequestMapping("delMembers")
+	@ResponseBody
+	public String delMembers(@RequestParam("ids")String[] ids) {
+		boolean flag = memberservice.delMembers(ids);
+		if(flag) {
+			return "1";
+		}else {
+			return "2";
+		}
+	}
 	
 }

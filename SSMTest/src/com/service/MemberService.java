@@ -7,4 +7,6 @@ import com.entity.Member;
 public interface MemberService {
 	
 	List<Member> getMemberList();
+
+	boolean delMembers(String[] ids);
 }

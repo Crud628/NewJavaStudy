@@ -4,4 +4,11 @@
 	<select id="getMemberList" resultType="com.entity.Member">
 		SELECT id, name, sex, salary, department, age FROM member
 	</select>
+	
+	<delete id="delMembers">
+		DELETE FROM mytest.`member` WHERE id in
+		<foreach collection="array" item="each" index="index" open="(" separator="," close=")">
+			#{each}
+		</foreach>
+	</delete>
 </mapper>

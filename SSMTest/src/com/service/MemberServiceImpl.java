@@ -20,4 +20,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberMapper.getMemberList();
 	}
 
+	@Override
+	public boolean delMembers(String[] ids) {
+		// TODO Auto-generated method stub
+		return memberMapper.delMembers(ids);
+	}
+
 }
