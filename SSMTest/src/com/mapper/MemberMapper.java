@@ -12,4 +12,5 @@ public interface MemberMapper {
 	boolean delMembers(String[] ids);
 
 	List<Member> getMemberPage(int start,int step);
+
 }

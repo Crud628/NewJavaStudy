@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Member;
+import com.entity.PageBean;
 import com.service.MemberService;
 
 @RestController
@@ -36,8 +37,8 @@ public class MemberController {
 	
 	@RequestMapping("getMemberPage")
 	@ResponseBody
-	public List<Member> getMemberPage(@RequestParam("pageNum")int i){
-		List<Member> list = memberservice.getMemberPage(i);
+	public PageBean<Member> getMemberPage(@RequestParam("pageNum")int i){
+		PageBean<Member> list = memberservice.memberQueryByPage(i);
 		return list;
 	}
 	
