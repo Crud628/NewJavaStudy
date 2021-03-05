@@ -31,6 +31,11 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
+	public User(String user_name, String user_pass) {
+		super();
+		this.user_name = user_name;
+		this.user_pass = user_pass;
+	}
 	public User(Integer user_id, String user_name, String user_pass) {
 		super();
 		this.user_id = user_id;

@@ -1,8 +1,12 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.User;
 import com.service.UserService;
@@ -24,6 +28,19 @@ public class UserController {
 		}else {
 			return "redirect:/html/b.html";
 			//失败
+		}
+	}
+	@RequestMapping("tr")
+	public String trasactionTest(@RequestParam("user_name")String[] usernames,@RequestParam("user_pass")String[] userpass) {
+		List<User> list = new ArrayList<User>();
+		for(int index=0;index<usernames.length-1;index++) {
+			list.add(new User(usernames[index],userpass[index]));
+		}
+		boolean flag = service.transactionTest(list);
+		if(flag) {
+			return "redirect:/html/a.html";
+		}else {
+			return "redirect:/html/b.html";
 		}
 	}
 }

@@ -1,7 +1,10 @@
 package com.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.entity.User;
 import com.mapper.UserMapper;
@@ -15,6 +18,20 @@ public class UserServiceImpl implements UserService{
 	public int registUser(User user) {
 		// TODO Auto-generated method stub
 		return userMapper.registUser(user);
+	}
+	
+	@Transactional
+	@Override
+	public boolean transactionTest(List<User> list) {
+		// TODO Auto-generated method stub
+		int result = 0;
+		for (User user : list) {
+			result+=userMapper.registUser(user);
+		}
+		if(result==list.size()) {
+			return true;
+		}
+		return false;
 	}
 	
 	
