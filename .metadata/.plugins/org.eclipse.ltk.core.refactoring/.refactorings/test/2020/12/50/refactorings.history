@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;yanghui&apos; in &apos;Day2.case6.main(...)&apos; to &apos;arr&apos;&#x0D;&#x0A;- Original project: &apos;test&apos;&#x0D;&#x0A;- Original element: &apos;Day2.case6.main(String[]).yanghui&apos;&#x0D;&#x0A;- Renamed element: &apos;yanghui&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;yanghui&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;Day2{case6.java[case6~main~\[QString;@yanghui!112!147!120!126!\[\[I!0!false" name="arr" references="true" stamp="1607499897523" version="1.0"/>
-</session>

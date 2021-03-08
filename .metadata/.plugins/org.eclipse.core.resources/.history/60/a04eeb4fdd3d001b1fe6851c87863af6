@@ -1,8 +1,0 @@
-package Day5;
-
-public class Person {
-	String id;
-	String name;
-	int age;
-	String sex;
-}

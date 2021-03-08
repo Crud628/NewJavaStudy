@@ -13,7 +13,7 @@ $(document).ready(function(){
         		if(data==false){
         			$("#show").text("用户名存在");
         		}else{
-        			$("#show").text("可以注册");
+        			$("#show").text("可以注册"); 
         		}
         	},
         	error:function(){
