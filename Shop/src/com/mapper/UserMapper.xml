@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+	<insert id="registUser" parameterType="com.entity.User">
+		INSERT INTO mytest.t_user (name, pwd, del_flg, create_time, update_time, coments) VALUES(#{name}, #{pwd}, '0',#{create_time}, #{update_time}, '审核')
+	</insert>
+	
+	<select id="nameCheck" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT name FROM mytest.t_user WHERE name=#{name}
+	</select>
+	
+	<select id="userLogin" parameterType="com.entity.User" resultType="java.lang.String">
+		SELECT name FROM mytest.t_user WHERE name=#{name} and pwd=#{pwd}
+	</select>
+</mapper>
