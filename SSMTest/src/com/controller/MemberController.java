@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.Member;
 import com.entity.PageBean;
+import com.github.pagehelper.PageInfo;
 import com.service.MemberService;
 
 @RestController
@@ -40,6 +41,16 @@ public class MemberController {
 	public PageBean<Member> getMemberPage(@RequestParam("pageNum")int i){
 		PageBean<Member> list = memberservice.memberQueryByPage(i);
 		return list;
+	}
+	
+	
+	@RequestMapping("getMemberPages")
+	@ResponseBody
+	public PageInfo<Member> getMemberPages(int parseInt){
+		System.out.println("run");
+		PageInfo<Member> page = memberservice.memberQueryByPagehelper(parseInt);
+		//System.out.println(1/0);
+		return page;
 	}
 	
 }

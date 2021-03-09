@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.entity.Member;
 import com.entity.PageBean;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mapper.MemberMapper;
 
 @Service
@@ -35,7 +37,7 @@ public class MemberServiceImpl implements MemberService{
 		return memberMapper.getMemberPage(start,step);
 	}
 	
-	//PageBean分页
+	//PageBean鍒嗛〉
 	@Override
 	public PageBean<Member> memberQueryByPage(int pageNum) {
 		// TODO Auto-generated method stub
@@ -43,14 +45,23 @@ public class MemberServiceImpl implements MemberService{
 		int rows=5;
 		
 		PageBean<Member> pageBean=new PageBean<Member>();
-		pageBean.setRows(rows); //每页数据条数
-		pageBean.setCurrentPage(pageNum);  //当前页数
-		pageBean.setTotalRows(member_all.size());  //总数据条数
-		//总页数
+		pageBean.setRows(rows); //姣忛〉鏁版嵁鏉℃暟
+		pageBean.setCurrentPage(pageNum);  //褰撳墠椤垫暟
+		pageBean.setTotalRows(member_all.size());  //鎬绘暟鎹潯鏁�
+		//鎬婚〉鏁�
 		pageBean.setTotalPage((member_all.size()%rows==0)?member_all.size()/rows:member_all.size()/rows+1);
-		//当前页数据
+		//褰撳墠椤垫暟鎹�
 		pageBean.setList(member_all.subList((pageNum-1)*5,(member_all.size()<pageNum*5)?member_all.size():pageNum*5));		
 		return pageBean;
+	}
+
+	@Override
+	public PageInfo<Member> memberQueryByPagehelper(int parseInt) {
+		// TODO Auto-generated method stub
+		PageHelper.startPage(parseInt,5);
+		List<Member> member_all = memberMapper.getMemberList();
+		PageInfo<Member> pageinfo = new PageInfo<Member>(member_all);
+		return pageinfo;
 	}
 
 

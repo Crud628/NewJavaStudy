@@ -3,6 +3,7 @@
  */
 var currentPage = 1;
 var totalPage = 1;
+var pagee;
  $(document).ready(function(){
  	Pages(1);
 });
@@ -12,42 +13,22 @@ function switchBtn(i) {
     switch (i) {
         //首页
         case 1:
-            currentPage=1;
             Pages(1);
-            $("#currentPage").text(currentPage);
+            $("#currentPage").text(1);
             break;
             //上一页
         case 2:
-            if (currentPage==1) {
-                currentPage=totalPage;
-                Pages(currentPage);
-            }else{
-                Pages(--currentPage);
-            }
-            $("#currentPage").text(currentPage);
+			Pages(pagee.prePage)
+            $("#currentPage").text(pagee.prePage);
             break;
         case 3:
-            if(currentPage >= totalPage){
-                currentPage=1;
-                Pages(1);
-            }else {
-                Pages(++currentPage);
-            }
-            $("#currentPage").text(currentPage);
+			Pages(pagee.nextPage)
+            $("#currentPage").text(pagee.nextPage);
             break;
         default:
             var page = $("#iPage").val();
-            if (page <1 ){
-                alert("请输入1-"+totalPage+"页");
-                break;
-            }
-            if(page > totalPage){
-                alert("最大为"+totalPage+"页");
-                break;
-            }
-            currentPage = page;
-            Pages(currentPage);
-            $("#currentPage").text(currentPage);
+			Pages(page)
+            $("#currentPage").text(page);
     }
 }
 
@@ -66,13 +47,14 @@ function remove(){
 
 function Pages(j) {
     $.ajax({
-        url:"../getMemberPage.action",
+        url:"../getMemberPages.action",
         type:"get",
-        data:{pageNum:j},
+        data:{parseInt:j},
         datatype:"json",
         success:function (data) {
+        	pagee=data
             totalPage=data.totalPage;
-            $("#totalPage").text("/"+totalPage);
+            $("#totalPage").text("/"+pagee.pages);
             var pages = data.list;
             var result="<table class='table table-striped table-hover '><thead><tr><th></th><th>员工id</th><th>员工姓名</th><th>员工性别</th><th>员工工资</th><th>员工部门</th><th>员工年龄</th></tr></thead>";
             	$.each(pages,function(i){

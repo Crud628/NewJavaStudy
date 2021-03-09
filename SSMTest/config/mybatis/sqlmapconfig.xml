@@ -12,9 +12,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 
 	<!-- 分页 -->
-<!-- 	<plugins>
+	<plugins>
 		<plugin interceptor="com.github.pagehelper.PageHelper">
 			<property name="dialect" value="mysql" />
 		</plugin>
-	</plugins> -->
+	</plugins>
 </configuration>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.SyslogMapper">
+	<insert id="runlog" parameterType="com.entity.Syslog">
+		INSERT INTO mytest.syslog (action_time, action_name, action_exception) VALUES(#{action_time}, #{action_name}, #{action_exception});
+	</insert>
+</mapper>
