@@ -53,4 +53,24 @@ public class MemberController {
 		return page;
 	}
 	
+	@RequestMapping("getMemberPage2")
+	@ResponseBody
+	public List<Member> getMemberPage2(@RequestParam("uname")String uname,
+			@RequestParam("salary1")Integer salary1,
+			@RequestParam("salary2")Integer salary2){
+		List<Member> page = memberservice.memberQuery2(uname,salary1,salary2);
+		return page;
+	}
+	
+	@RequestMapping("getMemberPage3")
+	@ResponseBody
+	public PageInfo<Member> getMemberPage3(@RequestParam("uname")String uname,
+			@RequestParam("salary1")Integer salary1,
+			@RequestParam("salary2")Integer salary2,
+			@RequestParam("pageNum")Integer pageNum,
+			@RequestParam("dep")String dep){
+		PageInfo<Member> page = memberservice.memberQuery3(uname,salary1,salary2,pageNum,dep);
+		return page;
+	}
+	
 }

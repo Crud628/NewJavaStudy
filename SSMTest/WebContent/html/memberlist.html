@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/javascript; charset=utf-8" />
 <title>Insert title here</title>
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -31,6 +31,15 @@
         <input type="button" value=">" id="right_btn" onclick="switchBtn(3)" class="btn btn-default btn-primary">
         <input type="text" id="iPage">
         <input type="button" class="btn btn-default btn-primary" id="jump" onclick="switchBtn(4)" value="跳转">
+	</div>
+	<div class="container" id="show2"></div>
+	
+	<div class="col-md-offset-3 col-md-5 text-center">
+		<span>员工名(模糊)</span><input class="btn btn-default btn-primary" type="text" id="name_like">&nbsp;&nbsp;&nbsp;
+		<span>员工id1</span><input class="btn btn-default btn-primary" type="number" id="id_min">&nbsp;&nbsp;&nbsp;
+		<span>员工id2</span><input class="btn btn-default btn-primary" type="number" id="id_max">&nbsp;&nbsp;&nbsp;
+		<span>员工部门(精确)</span><input class="btn btn-default btn-primary" type="text" id="department">&nbsp;&nbsp;&nbsp;
+		<button id="selectByLikeByPage" class="btn btn-default btn-primary">查询</button>
 	</div>
 </body>
 </html>

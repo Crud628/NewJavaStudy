@@ -95,3 +95,37 @@ function removeId(m){
          }
 	});
 }
+function selectByLikeByPage(){
+	    $.ajax({
+        url:"../getMemberPage2.action",
+        type:"get",
+        data:{
+        	uname:$("#name_like").val(),
+        	salary1:$("#id_min").val(),
+        	salary2:$("#id_max").val()
+        	},
+        datatype:"json",
+        success:function (data) {
+        	pagee=data
+            totalPage=data.totalPage;
+            $("#totalPage").text("/"+pagee.pages);
+            var pages = data.list;
+            var result="<table class='table table-striped table-hover '><thead><tr><th></th><th>员工id</th><th>员工姓名</th><th>员工性别</th><th>员工工资</th><th>员工部门</th><th>员工年龄</th></tr></thead>";
+            	$.each(pages,function(i){
+                	result +="<tr><td><input type='checkbox'>"
+                		+"</td><td>"+pages[i].id
+	                    +"</td><td>"+pages[i].name
+	                    +"</td><td>"+pages[i].sex
+	                    +"</td><td>"+pages[i].salary
+	                    +"</td><td>"+pages[i].department
+	                    +"</td><td>"+pages[i].age
+	                    +"</td></tr>";
+            	});
+            result+="</table>";
+            $("#show2").html(result);
+        },
+        error:function () {
+            alert("请求出错");
+        }
+    });
+}

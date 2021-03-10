@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>员工列表</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet"></style>
+</head>
+<body>
+
+<div>
+	<span>员工名(模糊)</span>
+	<input type="text" id="name_like">&nbsp;&nbsp;&nbsp;
+	<span>员工id1</span>
+	<input type="number" id="id_min">&nbsp;&nbsp;&nbsp;
+	<span>员工id2</span>
+	<input type="number" id="id_max">&nbsp;&nbsp;&nbsp;
+	<span>员工部门(精确)</span>
+	<input type="text" id="department">&nbsp;&nbsp;&nbsp;
+	<button id="selectByLikeByPage" onclick="switchBtn(5)">查询</button>
+</div>
+
+<div>
+	<button id="jump_page" class="btn btn-default btn-primary" onclick="switchBtn(5)">跳转</button>
+	&nbsp;&nbsp;&nbsp;
+	<input type="number" id="pageNum">
+	<button id="firstPage" class="btn btn-default btn-primary" onclick="switchBtn(1)">首页</button>
+	&nbsp;&nbsp;&nbsp;
+	<button id="prevPage" class="btn btn-default btn-primary" onclick="switchBtn(2)">上一页</button>
+	&nbsp;&nbsp;&nbsp;
+	<button id="nextPage" class="btn btn-default btn-primary" onclick="switchBtn(3)">下一页</button>
+	&nbsp;&nbsp;&nbsp;
+	<button id="finalPage" class="btn btn-default btn-primary" onclick="switchBtn(4)">末页</button>
+	&nbsp;&nbsp;&nbsp;
+	<br>
+</div>
+
+	<div id="show" class="container"></div>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/pList.js"></script>
+</body>
+</html>

@@ -64,5 +64,22 @@ public class MemberServiceImpl implements MemberService{
 		return pageinfo;
 	}
 
+	@Override
+	public List<Member> memberQuery2(String uname, Integer salary1, Integer salary2) {
+		// TODO Auto-generated method stub
+		return memberMapper.memberQuery2(uname,salary1,salary2);
+	}
+
+	@Override
+	public PageInfo<Member> memberQuery3(String uname, Integer salary1, Integer salary2, Integer pageNum, String dep) {
+		// TODO Auto-generated method stub
+		PageHelper.startPage(pageNum,5);
+		List<Member> list = memberMapper.memberQuery3(uname,salary1,salary2,dep);
+		PageInfo<Member> pageinfo = new PageInfo<Member>(list);
+		return pageinfo;
+	}
+
+
+
 
 }

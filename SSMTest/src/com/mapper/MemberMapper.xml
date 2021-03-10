@@ -15,4 +15,26 @@
 	<select id="getMemberPage" parameterType="int" resultType="Member">
 		SELECT Id, name, sex, salary, department, age FROM member limit #{param1},#{param2}
 	</select>
+	
+	
+	<select id="memberQuery2" resultType="Member">
+		SELECT id, name, sex, salary, department, age FROM member
+		<where>
+			<if test="param1 != null">and name like concat('%',#{param1,jdbcType=VARCHAR},'%')</if>
+			<if test="param2 != null and param3 == null">and salary > #{param2}</if>
+			<if test="param2 == null and param3 != null">and #{param3} > salary</if>
+			<if test="param2 != null and param3 != null">and salary between #{param2} and #{param3}</if>
+		</where>
+	</select>
+	
+	<select id="memberQuery3" resultType="Member">
+		SELECT id, name, sex, salary, department, age FROM member
+		<where>
+			<if test="uname != ''">and name like concat('%',#{uname,jdbcType=VARCHAR},'%')</if>
+			<if test="salary1 != null and salary2 == null">and id > #{salary1}</if>
+			<if test="salary1 == null and salary2 != null">and #{salary2} > id</if>
+			<if test="salary1 != null and salary2 != null">and salary between #{salary1} and #{salary2}</if>
+			<if test="dep != ''">and department = #{dep}</if>
+		</where>
+	</select>
 </mapper>

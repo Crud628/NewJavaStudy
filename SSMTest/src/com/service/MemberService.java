@@ -17,4 +17,8 @@ public interface MemberService {
 	PageBean<Member> memberQueryByPage(int pageNum);
 
 	PageInfo<Member> memberQueryByPagehelper(int parseInt);
+
+	List<Member> memberQuery2(String uname, Integer salary1, Integer salary2);
+
+	PageInfo<Member> memberQuery3(String uname, Integer salary1, Integer salary2, Integer pageNum, String dep);
 }

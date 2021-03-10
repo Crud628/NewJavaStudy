@@ -20,22 +20,22 @@ public class testAspect {
 	@Autowired
 	SyslogMapper syslogDao;
 	
-	@Around("execution(* com.controller.MemberController.*(..))")
-	public Object aspect_test(ProceedingJoinPoint point) {
-		Syslog syslog = new Syslog();
-		try {
-			syslog.setAction_time(new Date());
-			syslog.setAction_name(point.getSignature().getName().toString());
-			Object o = point.proceed();
-			return o;
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			syslog.setAction_exception(e.getMessage());
-			return null;
-		}finally {
-			syslogDao.runlog(syslog);
-		}
-	}
+//	@Around("execution(* com.controller.MemberController.*(..))")
+//	public Object aspect_test(ProceedingJoinPoint point) {
+//		Syslog syslog = new Syslog();
+//		try {
+//			syslog.setAction_time(new Date());
+//			syslog.setAction_name(point.getSignature().getName().toString());
+//			Object o = point.proceed();
+//			return o;
+//		} catch (Throwable e) {
+//			// TODO Auto-generated catch block
+//			syslog.setAction_exception(e.getMessage());
+//			return null;
+//		}finally {
+//			syslogDao.runlog(syslog);
+//		}
+//	}
 //	  @Around("execution(* com.controller.MapperController.getMemberPages(..))")
 //	  public Object aspect_test_01(ProceedingJoinPoint point) throws Throwable {
 //		  System.out.println("before"); 
@@ -56,12 +56,12 @@ public class testAspect {
 ////	public void aspect_test_03(JoinPoint point) throws Throwable{
 ////		end = new Date().getTime();
 ////		System.out.println(point.getTarget());
-////		System.out.println((end - start)/1000 + "Ãë");
+////		System.out.println((end - start)/1000 + "ï¿½ï¿½");
 ////
 ////	}
 //	@AfterThrowing("execution(* com.controller.MemberController.getMemberPages(..))")
 //	public void aspect_test_04(JoinPoint point) throws Throwable {
-//		throw new Exception("Òì³£");
+//		throw new Exception("ï¿½ì³£");
 //	}
 //
 //	@AfterReturning("execution(* com.controller.MemberController.getMemberPages(..))")
@@ -76,7 +76,7 @@ public class testAspect {
 //		System.out.println(point.getSignature().getModifiers());//1
 //		System.out.println(point.getSourceLocation());//org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6fbf13b8
 //		System.out.println(point.getStaticPart());//execution(PageInfo com.controller.MemberController.getMemberPages(int))
-//		System.out.println("ÔËÐÐÊ±¼ä"+(end - start)/1000 + "Ãë");
+//		System.out.println("ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"+(end - start)/1000 + "ï¿½ï¿½");
 //
 //	}
 }
