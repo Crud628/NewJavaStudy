@@ -68,15 +68,12 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
-	
-	
-	
 	<context:component-scan base-package="com.aop" />
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/**/getMemberPages.action"/>
+			<mvc:mapping path="/**/get.action"/>
 			<bean class="com.interceptor.TestInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

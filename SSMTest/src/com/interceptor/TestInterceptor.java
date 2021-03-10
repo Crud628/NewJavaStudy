@@ -8,35 +8,36 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class TestInterceptor implements HandlerInterceptor{
 
-//	SpringMvc¹¤×÷Á÷³Ì
+//	SpringMvcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
-//	µÚÒ»²½:ÓÃ»§·¢ÆğÇëÇóµ½Ç°¶Ë¿ØÖÆÆ÷£¨DispatcherServlet£©
-//          preHandle()  true ¼ÌĞøÖ´ĞĞ   false ÖÕÖ¹
-//	µÚ¶ş²½£ºÇ°¶Ë¿ØÖÆÆ÷ÇëÇó´¦ÀíÆ÷Ó³ÉäÆ÷£¨HandlerMappering£©È¥²éÕÒ´¦ÀíÆ÷£¨Handle£©£ºÍ¨¹ıxmlÅäÖÃ»òÕß×¢½â½øĞĞ²éÕÒ
+//	ï¿½ï¿½Ò»ï¿½ï¿½:ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DispatcherServletï¿½ï¿½
+//          preHandle()  true ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½   false ï¿½ï¿½Ö¹
+//	ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HandlerMapperingï¿½ï¿½È¥ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Handleï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½xmlï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ğ²ï¿½ï¿½ï¿½
 //
-//	µÚÈı²½£ºÕÒµ½ÒÔºó´¦ÀíÆ÷Ó³ÉäÆ÷£¨HandlerMappering£©ÏñÇ°¶Ë¿ØÖÆÆ÷·µ»ØÖ´ĞĞÁ´£¨HandlerExecutionChain£©
+//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HandlerMapperingï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HandlerExecutionChainï¿½ï¿½
 //
-//	µÚËÄ²½£ºÇ°¶Ë¿ØÖÆÆ÷£¨DispatcherServlet£©µ÷ÓÃ´¦ÀíÆ÷ÊÊÅäÆ÷£¨HandlerAdapter£©È¥Ö´ĞĞ´¦ÀíÆ÷£¨Handler£©
+//	ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DispatcherServletï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HandlerAdapterï¿½ï¿½È¥Ö´ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Handlerï¿½ï¿½
 //
-//	µÚÎå²½£º´¦ÀíÆ÷ÊÊÅäÆ÷È¥Ö´ĞĞHandler
+//	ï¿½ï¿½ï¿½å²½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥Ö´ï¿½ï¿½Handler
 //
-//	µÚÁù²½£ºHandlerÖ´ĞĞÍê¸ø´¦ÀíÆ÷ÊÊÅäÆ÷·µ»ØModelAndView£¨Ö´ĞĞ¿ØÖÆ²ã·½·¨£©
+//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HandlerÖ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ModelAndViewï¿½ï¿½Ö´ï¿½Ğ¿ï¿½ï¿½Æ²ã·½ï¿½ï¿½ï¿½ï¿½
 //         postHandle
-//	µÚÆß²½£º´¦ÀíÆ÷ÊÊÅäÆ÷ÏòÇ°¶Ë¿ØÖÆÆ÷·µ»ØModelAndView
+//	ï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ModelAndView
 //
-//	µÚ°Ë²½£ºÇ°¶Ë¿ØÖÆÆ÷ÇëÇóÊÓÍ¼½âÎöÆ÷£¨ViewResolver£©È¥½øĞĞÊÓÍ¼½âÎö
+//	ï¿½Ú°Ë²ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ViewResolverï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
 //
-//	µÚ¾Å²½£ºÊÓÍ¼½âÎöÆ÷ÏñÇ°¶Ë¿ØÖÆÆ÷·µ»ØView
+//	ï¿½Ú¾Å²ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½View
 //
-//	µÚÊ®²½£ºÇ°¶Ë¿ØÖÆÆ÷¶ÔÊÓÍ¼½øĞĞäÖÈ¾
+//	ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾
 //
-//	µÚÊ®Ò»²½£ºÇ°¶Ë¿ØÖÆÆ÷ÏòÓÃ»§ÏìÓ¦½á¹û
+//	ï¿½ï¿½Ê®Ò»ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½
 //	afterCompletion
 	
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(arg0.getAttribute("user"));
 		System.out.println("afterCompletion run");
 	}
 
@@ -51,9 +52,9 @@ public class TestInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("preHandle run"+arg0.getRequestURI());  //arg0.getRequestURI() ±íÊ¾ À¹½ØµÄÇëÇóÂ·¾¶
-
-		return true;  //true/false ÊÇ·ñÀ¹½Ø¸ÃÇëÇó
+		System.out.println("preHandle run"+arg0.getRequestURI());  //arg0.getRequestURI() ï¿½ï¿½Ê¾ ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+		
+		return true;  //true/false ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 }
