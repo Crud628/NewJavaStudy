@@ -48,7 +48,7 @@ function Pages(j){
             totalPage=data.totalPage;
             //$("#totalPage").text("/"+pagee.pages);
             var pages = data.list;
-            var result="<table class='table table-striped table-hover '><thead><tr><th></th><th>员工id</th><th>???????</th><th>??????</th><th>???????</th><th>???????</th><th>???????</th></tr></thead>";
+            var result="<table class='table table-striped table-hover '><thead><tr><th></th><th>员工id</th><th>员工姓名</th><th>员工性别</th><th>薪资</th><th>部门</th><th>年龄</th></tr></thead>";
             	$.each(pages,function(i){
                 	result +="<tr><td><input type='checkbox'>"
                 		+"</td><td>"+pages[i].id
@@ -63,7 +63,7 @@ function Pages(j){
             $("#show").html(result);
         },
         error:function () {
-            alert("???????");
+            alert("请求出错");
         }
     });
 }

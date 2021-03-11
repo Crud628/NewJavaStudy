@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+ $(document).ready(function(){
+ 	$("#submit").click(function(){
+ 		$.ajax({
+ 			url:"../ulogin",
+ 			type:"post",
+ 			data:{
+ 				name:$("#username").val(),
+ 				pwd:$("#password").val()
+ 			},
+ 			datatype:"json",
+ 			success:function(data){
+ 				if(data.success){
+ 					//登陆成功
+ 					alert("登陆成功");
+ 					
+ 				}else{
+ 					//登陆失败
+ 					alert("失败")
+ 				}
+ 			},
+ 			error:function(){
+ 			
+ 			}
+ 		});
+ 	});
+});

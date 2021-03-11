@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 引入bootstrap的css -->
+<link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<!-- 引入共同的css -->
+<link type="text/css" rel="stylesheet" href="../css/common.css">
+<!-- 引入自己的css -->
+<link type="text/css" rel="stylesheet" href="../cssHtml/add.css">
+</head>
+<body onload="startTime()">
+			<header>
+				<div id="loginDiv">
+					<div class="col-md-2">
+						<a href="index.html"><img alt="" src="../images/logo.png"></a>
+					</div>
+					<div class="col-md-4 col-md-offset-2" id="proName">
+						商店管理系统
+					</div>
+					<div class="col-md-2 col-md-offset-2" id="timesDiv">
+						
+					</div>
+				</div>
+				<div id="navDiv">
+					<!-- 导航条1 -->
+					<div id="nav_01" class="row">
+						<div class="col-md-6 col-md-offset-1">
+							<ul>
+								<li><a href="login.html">登录</a></li>
+								<li><a href="register.html">注册</a></li>
+								<li id="nav_01_child">
+									<a href="#">
+									<img src="../images/down.png"alt="" id="downImg">
+									<img src="../images/up.png"alt="" id="upImg">
+									商家管理</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-2 col-md-offset-2">
+							<a href="#" id="loginInDiv">请登录</a>
+						</div>
+					</div>
+					<!-- 导航条2 -->
+					<div id="nav_02">
+						<div class="col-md-6 col-md-offset-3">
+							<ul>
+								<li>
+								<img src="../images/timg.jpg"alt="">
+								<a href="query.html" id="reach">查询</a></li>
+								<li>
+								<img src="../images/add.png"alt="">
+								<a href="add.html" id="add">添加</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div id="div_01">
+				<div class="container">
+				<form action="" id="myform">
+					<div class="form-group">
+						<label class="col-md-2">商家ID</label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="id" id="id">
+						</div>
+						
+						<label class="col-md-2 ">商家名</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="name" id="name">
+						</div>
+					</div>
+					
+					<div class="form-group">
+					
+						<label class="col-md-2">电话</label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="tel" id="tel">
+						</div>
+						<label class="col-md-2 ">商家分类</label>
+						<div class="col-md-4">
+							<label>
+								<input type="radio" name="type" value="中餐" checked>中餐
+							</label>
+							<label class="label_01">
+								<input type="radio" name="type" value="韩餐">韩餐
+							</label>
+							<label class="label_01">
+								<input type="radio" name="type" value="日料">日料
+							</label>
+						</div>
+					</div>
+				
+					<div class="form-group">
+						<label class="col-md-2">商家地址</label>
+						<div class="col-md-3">
+							<select class="form-control" name="distinct" id="distinct">
+							  <option value="全部">全部</option>
+							  <option value="中山区">中山区</option>
+							  <option value="西岗区">西岗区</option>
+							  <option value="甘井子区">甘井子区</option>
+							  <option value="沙河口区">沙河口区</option>
+							</select>
+						</div>
+						
+						<label class="col-md-2 ">详细地址</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="address" id="address">
+						</div>			
+					</div>
+					
+					<div class="form-group">
+						<label class="col-md-2">人均消费</label>
+						<div class="col-md-3">
+							<input type="number" class="form-control" name="payBegin" id="payBegin"
+							min="0" max="2000" step="1" placeholder="0">
+						</div>
+							
+					</div>
+					
+					<div class="form-group">
+						<div class="col-md-3 col-md-offset-2 center">
+							<input type="reset" value="清空" class="btn btn-danger">
+						</div>
+						<div class="col-md-3 col-md-offset-1 center">
+							<input type="button" value="保存" class="btn btn-primary">
+						</div>
+					</div>
+				</form>	
+			</div>
+		</div>
+			<footer>
+				<div id="div_03">
+					<div class="col-md-6 col-md-offset-3">
+						<ul>
+							<li>
+							<img src="../images/wx.png"alt="" id="img_02">
+							<p class="p_01">Copyright@2019.All Rights Reserved</p>
+							<p class="p_01">关于我们丨关于我们丨关于我们</p>
+							</li>
+							<li>
+							<p class="p_01">关注微信公众号</p>
+							<img src="../images/ewm.png"alt="" id="img_01">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		
+	</div>
+<!--引入jQuery的js-->
+<script type="text/javascript" src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+<!--引入bootstrap的js-->
+<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+<!-- 引入共同的js -->
+<script type="text/javascript" src="../js/common.js"></script>
+<!--引入页面的js-->
+<script type="text/javascript" src="../jsHtml/add.js"></script>
+</body>
+</html>

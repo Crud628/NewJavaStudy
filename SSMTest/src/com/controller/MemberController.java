@@ -69,6 +69,9 @@ public class MemberController {
 			@RequestParam("salary2")Integer salary2,
 			@RequestParam("pageNum")Integer pageNum,
 			@RequestParam("dep")String dep){
+		if(pageNum==null) {
+			pageNum=1;
+		}
 		PageInfo<Member> page = memberservice.memberQuery3(uname,salary1,salary2,pageNum,dep);
 		return page;
 	}

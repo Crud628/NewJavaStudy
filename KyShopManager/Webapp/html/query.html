@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 引入bootstrap的css -->
+<link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<!-- 引入共同的css -->
+<link type="text/css" rel="stylesheet" href="../css/common.css">
+<!-- 引入自己的css -->
+<link type="text/css" rel="stylesheet" href="../cssHtml/query.css">
+</head>
+<body onload="startTime()">
+	<header>
+		<div id="loginDiv">
+			<div class="col-md-2">
+				<a href="index.html"><img alt="" src="../images/logo.png"></a>
+			</div>
+			<div class="col-md-4 col-md-offset-2" id="proName">
+				商店管理系统
+			</div>
+			<div class="col-md-2 col-md-offset-2" id="timesDiv">
+				
+			</div>
+		</div>
+		<div id="navDiv">
+			<!-- 导航条1 -->
+			<div id="nav_01" class="row">
+				<div class="col-md-6 col-md-offset-1">
+					<ul>
+						<li><a href="login.html">登录</a></li>
+						<li><a href="register.html">注册</a></li>
+						<li id="nav_01_child">
+							<a href="#">
+							<img src="../images/down.png"alt="" id="downImg">
+							<img src="../images/up.png"alt="" id="upImg">
+							商家管理</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2 col-md-offset-2">
+					<a href="#" id="loginInDiv">请登录</a>
+				</div>
+			</div>
+			<!-- 导航条2 -->
+			<div id="nav_02">
+				<div class="col-md-6 col-md-offset-3">
+					<ul>
+						<li>
+						<img src="../images/timg.jpg"alt="">
+						<a href="query.html" id="reach">查询</a></li>
+						<li>
+						<img src="../images/add.png"alt="">
+						<a href="add.html" id="add">添加</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="div_01">
+
+		<div class="container">
+			
+		
+		
+		<form action="" id="myform">
+			<div class="form-group">
+				<label class="col-md-1">商家ID</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="id" id="id">
+				</div>
+				
+				<label class="col-md-1">商家名</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="name" id="name">
+				</div>
+				
+				<label class="col-md-1">电话</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="tel" id="tel">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-1">商家分类</label>
+				<div class="col-md-3">
+					<label>
+						<input type="radio" name="type" value="中餐">中餐
+					</label>
+					<label class="label_01">
+						<input type="radio" name="type" value="韩餐">韩餐
+					</label>
+					<label class="label_01">
+						<input type="radio" name="type" value="日料">日料
+					</label>
+					<label class="label_01">
+						<input type="radio" name="type" value="" checked="checked">全部
+					</label>
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label class="col-md-1">商家地址</label>
+				<div class="col-md-3">
+					<select class="form-control" name="distinct" id="distinct">
+						<option value="全部">全部</option>
+						<option value="中山区">中山区</option>
+						<option value="西岗区">西岗区</option>
+						<option value="甘井子区">甘井子区</option>
+						<option value="沙河口区">沙河口区</option>
+					</select>
+				</div>
+				
+				<label class="col-md-1">详细地址</label>
+				<div class="col-md-7">
+					<input type="text" class="form-control" name="address" id="address">
+				</div>			
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-1">人均消费</label>
+				<div class="col-md-3">
+					<input type="number" class="form-control" name="payBegin" id="payBegin"
+					min="0" max="2000" step="1" placeholder="0">
+				</div>
+				
+				<label class="col-md-1">~</label>
+				<div class="col-md-3">
+					<input type="number" class="form-control" name="payEnd" id="payEnd"
+					min="0" max="2000" step="1" placeholder="0">
+				</div>
+				<span id="span_01">元/人</span>			
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-3 col-md-offset-2 center">
+					<input type="reset" value="清空" class="btn btn-danger">
+				</div>
+				<div class="col-md-3 col-md-offset-1 center">
+					<input type="button" value="查询" class="btn btn-primary">
+				</div>
+			</div>
+			<div class="hr-line-dashed" id = "hr">
+				<hr style= "border:1px dotted white">
+			</div>
+			<div class="col-md-1">
+				<input type="button" value="删除所选" class="btn btn-danger">
+			</div>
+			<div class = "col-md-2 page">
+				第<span class="red" id = "page1">0</span>页/共<span class="red">0</span>页
+			</div>
+			<div class="col-md-9 page text-right">
+				共查到<span class = "red">0</span>条信息
+			</div>
+			<div id = "tt">
+				<table class="table table-striped table-bordered table-condensed">
+					<thead class="">
+						<th class = "danger  text-center">
+							<input type="checkbox">
+						</th>
+						<th class = "danger text-center">商家ID</th>
+						<th class = "danger text-center">商家名</th>
+						<th class = "danger text-center">电话</th>
+						<th class = "danger text-center">分类</th>
+						<th class = "danger text-center">地址</th>
+						<th class = "danger text-center">详细地址</th>
+						<th class = "danger text-center">人均（元/人）</th>
+						<th class = "danger text-center"></th>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-8 col-md-offset-3">
+				<input type="button" value="首页" class="btn btn-default"/>
+				<input type="button" value="上一页" class="btn btn-default"/>
+				<input type="button" value="下一页" class="btn btn-default"/>
+				<input type="button" value="末页" class="btn btn-default"/>
+				<input type="button" value="跳转到" class="btn btn-default" />
+				<input type="text" id="page_s"/>
+				<span>页</span>
+			</div>
+		</form>
+		</div>
+	</div>
+	<footer>
+		<div id="div_03">
+			<div class="col-md-6 col-md-offset-3">
+				<ul>
+					<li>
+					<img src="../images/wx.png"alt="" id="img_02">
+					<p class="p_01">Copyright@2019.All Rights Reserved</p>
+					<p class="p_01">关于我们丨关于我们丨关于我们</p>
+					</li>
+					<li>
+					<p class="p_01">关注微信公众号</p>
+					<img src="../images/ewm.png"alt="" id="img_01">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!--引入jQuery的js-->
+	<script type="text/javascript" src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+	<!--引入bootstrap的js-->
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+	<!-- 引入共同的js -->
+	<script type="text/javascript" src="../js/common.js"></script>
+	<!--引入页面的js-->
+	<script type="text/javascript" src="../jsHtml/query.js"></script>
+</body>
+</html>
