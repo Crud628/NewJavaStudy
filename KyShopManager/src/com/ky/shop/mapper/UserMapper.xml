@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ky.shop.mapper.UserMapper">
-	<select id="selectUserByNameAndPwd"
-		parameterType="com.ky.shop.entity.User"
-		resultType="com.ky.shop.entity.User">
+	<select id="selectUserByNameAndPwd" parameterType="com.ky.shop.entity.User" resultType="com.ky.shop.entity.User">
 		SELECT name,pwd
 		FROM
 		mytest.t_user 
