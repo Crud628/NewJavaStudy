@@ -9,6 +9,8 @@
 		name = #{name}
 		AND
 		pwd = #{pwd}
+		AND
+		del_flag = 0
 	</select>
 
 	<insert id="userRegist" parameterType="com.ky.shop.entity.User">

@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ky.shop.mapper.ShopMapper">
+	<select id="getShopList" resultType="Shop">
+		SELECT id, name, tel, `type`, district, address FROM mytest.t_seller
+		<where>
+			<if test="id != null">and id like concat('%',#{id,jdbcType=VARCHAR},'%')</if>
+			<if test="sname != null">and name = #{sname}</if>
+			<if test="phone != null">and tel = #{phone}</if>
+			<if test="stype != null">and type = #{stype}</if>
+			<if test="distinct != null">and district = #{district} </if>
+			<if test="adress != null">and adress = #{adress}</if>
+			<if test="payBegin != null and payEnd == null">and per > #{payBegin} </if>
+			<if test="payBegin == null and payEnd != null">and #{payEnd} > per</if>
+			<if test="payBegin != null and payEnd != null">and per between #{payBegin} and #{payEnd}</if>
+			and del_flag=0
+		</where>
+	</select>
+	
+	<select id="getLast" resultType="int">
+		SELECT id FROM mytest.t_seller
+		order by id desc limit 1
+	</select>
 
+	<insert id="registShop" parameterType="Shop">
+		INSERT INTO
+		mytest.t_seller (id, name, tel, `type`, district, address, per,
+		del_flg, create_time, update_time, comments)
+		VALUES
+		(#{id}, #{name},
+		#{tel}, #{type},
+		#{district}, #{adress}, #{per}, 0,
+		#{create_time},
+		#{update_time}, #{coments};
+	</insert>
+	<select id="getShopById" resultType="Shop">
+		SELECT id, name, tel,
+		`type`, district, address, per, del_flg, create_time, update_time,
+		comments FROM mytest.t_seller
+		WHERE
+		id = #{id}
+	</select>
+	
+	<update id="updateShop" parameterType="Shop">
+		UPDATE mytest.t_seller 
+		SET 
+		name=#{name}, 
+		tel=#{tel},
+		`type`=#{type}, 
+		district=#{district}, 
+		address=#{address}, 
+		per=#{per}, 
+		del_flg=#{del_flg}, 
+		update_time=#{update_time}, 
+		comments=#{comments} 
+		WHERE id=#{id};
+	</update>
 </mapper>
